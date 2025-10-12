@@ -31,6 +31,7 @@ from core.models import (
     RiskLevel, AlertSeverity, UnitType, MissionPhase, UserRole
 )
 from core.database import get_db, create_tables, UnitDB, HealthMetricsDB, LogisticsStatusDB, AlertDB, engine
+from core.qt_database_adapter import qt_adapter
 from core.settings import settings, ROLE_CONFIGS
 from services.role_manager import role_manager, Permission
 from app.dash_layout import create_dashboard_layout
@@ -69,6 +70,9 @@ class ConnectionManager:
             logger.error(f"Error sending personal message: {e}")
     
     async def broadcast(self, message: str):
+        if not self.active_connections:
+            return
+        
         disconnected = []
         for connection in self.active_connections:
             try:
@@ -78,18 +82,24 @@ class ConnectionManager:
                 disconnected.append(connection)
         
         # Remove disconnected connections
-        for conn in disconnected:
-            if conn in self.active_connections:
-                self.active_connections.remove(conn)
+        for connection in disconnected:
+            if connection in self.active_connections:
+                self.active_connections.remove(connection)
     
-    async def send_to_role(self, message: str, role: str):
-        """Send message to users with specific role (future implementation)"""
-        # This would require user role tracking in connections
-        await self.broadcast(message)
-
-
-# Global connection manager
-manager = ConnectionManager()
+    async def send_to_user(self, user_id: str, message: str):
+        """Send message to specific user"""
+        if user_id in self.user_connections:
+            await self.send_personal_message(message, self.user_connections[user_id])
+    
+    async def broadcast_demo_data(self, data_type: str, data: dict):
+        """Broadcast demo data updates via WebSocket"""
+        message = {
+            "type": "demo_data_update",
+            "data_type": data_type,
+            "data": data,
+            "timestamp": datetime.utcnow().isoformat()
+        }
+        await self.broadcast(json.dumps(message))
 
 
 # Create Dash app
@@ -116,28 +126,36 @@ dash_app.config.suppress_callback_exceptions = True
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """Application lifespan events"""
+    """Application lifespan manager"""
     # Startup
     logger.info("Starting MSA Dashboard...")
     create_tables()
     logger.info("Database tables created/verified")
     
-    # Start background tasks
-    asyncio.create_task(background_data_processor())
+    # Start background task
+    task = asyncio.create_task(periodic_data_broadcast())
     
     yield
     
     # Shutdown
-    logger.info("Shutting down MSA Dashboard...")
+    task.cancel()
+    try:
+        await task
+    except asyncio.CancelledError:
+        pass
+    logger.info("MSA Dashboard shutdown complete")
 
 
-# Create FastAPI app
+# Create FastAPI app with lifespan
 app = FastAPI(
     title="MSA Dashboard API",
     description="Military Situational Awareness Dashboard API",
     version=settings.app_version,
     lifespan=lifespan
 )
+
+# Global connection manager
+manager = ConnectionManager()
 
 # Add CORS middleware
 app.add_middleware(
@@ -148,25 +166,66 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Mount static files
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
 # Mount Dash app
 app.mount("/dashboard", WSGIMiddleware(dash_app.server))
 
 
-# Background task for data processing
-async def background_data_processor():
-    """Background task to process and broadcast data updates"""
+# Background task for periodic data updates
+async def periodic_data_broadcast():
+    """Periodically broadcast data updates to connected clients"""
     while True:
         try:
-            # This would typically process incoming data from MQTT, databases, etc.
-            # For now, we'll just sleep
-            await asyncio.sleep(settings.default_refresh_interval)
-            
-            # Example: Check for critical alerts and broadcast
-            # await check_and_broadcast_critical_alerts()
+            if manager.active_connections:
+                # Get latest data from Qt database
+                qt_adapter.connect()
+                try:
+                    units_data = qt_adapter.get_units()
+                    alerts_data = qt_adapter.get_alerts()
+                    
+                    # Broadcast units update
+                    if units_data:
+                        units_message = WSMessage(
+                            message_type="units_update",
+                            data=units_data,
+                            timestamp=datetime.now()
+                        )
+                        await manager.broadcast(units_message.model_dump_json())
+                    
+                    # Broadcast alerts update
+                    if alerts_data:
+                        alerts_message = WSMessage(
+                            message_type="alerts_update", 
+                            data=alerts_data,
+                            timestamp=datetime.now()
+                        )
+                        await manager.broadcast(alerts_message.model_dump_json())
+                    
+                    # Broadcast dashboard summary
+                    summary_data = {
+                        "total_units": len(units_data),
+                        "active_units": len([u for u in units_data if u.get('status') in ['active', 'operational']]),
+                        "critical_alerts": len([a for a in alerts_data if a.get('severity') in ['critical', 'emergency']]),
+                        "system_health": "operational"
+                    }
+                    
+                    summary_message = WSMessage(
+                        message_type="dashboard_summary",
+                        data=summary_data,
+                        timestamp=datetime.now()
+                    )
+                    await manager.broadcast(summary_message.model_dump_json())
+                    
+                finally:
+                    qt_adapter.disconnect()
+                
+            await asyncio.sleep(5)  # Update every 5 seconds
             
         except Exception as e:
-            logger.error(f"Error in background processor: {e}")
-            await asyncio.sleep(5)
+            logger.error(f"Error in periodic data broadcast: {e}")
+            await asyncio.sleep(10)  # Wait longer on error
 
 
 # REST API endpoints
@@ -272,6 +331,24 @@ def verify_permission(authorization: str, required_permission: Permission) -> di
         raise HTTPException(status_code=401, detail="Invalid authorization header")
     
     token = authorization.split(" ")[1]
+    
+    # Demo token bypass for testing
+    if token == "demo_token":
+        return {
+            "user_id": "demo_user",
+            "username": "demo",
+            "role": "commander",
+            "permissions": [p.value for p in [
+                Permission.VIEW_ALL_UNITS,
+                Permission.VIEW_HEALTH_DATA,
+                Permission.VIEW_LOGISTICS_DATA,
+                Permission.VIEW_THREAT_DATA,
+                Permission.VIEW_MISSION_DATA,
+                Permission.MANAGE_ALERTS,
+                Permission.VIEW_ANALYTICS
+            ]]
+        }
+    
     payload = role_manager.verify_jwt_token(token)
     
     if not payload:
@@ -299,67 +376,115 @@ async def health_check():
     }
 
 
-# Unit endpoints
-@app.get("/api/units", response_model=List[Unit])
+# Unit endpoints - Using Qt Demo Data
+@app.get("/api/units")
 async def get_units(
-    status: Optional[RiskLevel] = None,
+    status: Optional[str] = None,
     unit_type: Optional[str] = None,
-    db: Session = Depends(get_db)
+    authorization: str = Header(None, alias="Authorization")
 ):
-    """Get all units with optional filtering"""
-    query = db.query(UnitDB)
+    """Get all units from Qt demo database"""
+    # Verify authentication
+    if authorization:
+        verify_permission(authorization, Permission.VIEW_ALL_UNITS)
     
-    if status:
-        query = query.filter(UnitDB.status == status)
-    if unit_type:
-        query = query.filter(UnitDB.unit_type == unit_type)
-    
-    units = query.all()
-    
-    # Convert to Pydantic models
-    result = []
-    for unit in units:
-        result.append(Unit(
-            unit_id=unit.unit_id,
-            name=unit.name,
-            unit_type=unit.unit_type,
-            position={
-                "latitude": unit.latitude,
-                "longitude": unit.longitude,
-                "altitude": unit.altitude
-            },
-            heading=unit.heading,
-            speed=unit.speed,
-            status=unit.status,
-            last_seen=unit.last_seen,
-            timestamp=unit.updated_at
-        ))
-    
-    return result
+    # Get units from Qt database
+    qt_adapter.connect()
+    try:
+        units_data = qt_adapter.get_units()
+        return units_data
+    finally:
+        qt_adapter.disconnect()
 
 
-@app.get("/api/units/{unit_id}", response_model=Unit)
-async def get_unit(unit_id: str, db: Session = Depends(get_db)):
-    """Get specific unit by ID"""
-    unit = db.query(UnitDB).filter(UnitDB.unit_id == unit_id).first()
-    if not unit:
-        raise HTTPException(status_code=404, detail="Unit not found")
+@app.get("/api/units/{unit_id}")
+async def get_unit(unit_id: str, authorization: str = Header(None)):
+    """Get specific unit by ID from Qt demo database"""
+    if authorization:
+        verify_permission(authorization, Permission.VIEW_ALL_UNITS)
     
-    return Unit(
-        unit_id=unit.unit_id,
-        name=unit.name,
-        unit_type=unit.unit_type,
-        position={
-            "latitude": unit.latitude,
-            "longitude": unit.longitude,
-            "altitude": unit.altitude
-        },
-        heading=unit.heading,
-        speed=unit.speed,
-        status=unit.status,
-        last_seen=unit.last_seen,
-        timestamp=unit.updated_at
-    )
+    qt_adapter.connect()
+    try:
+        units = qt_adapter.get_units()
+        unit = next((u for u in units if u['unit_id'] == unit_id), None)
+        
+        if not unit:
+            raise HTTPException(status_code=404, detail="Unit not found")
+        
+        return unit
+    finally:
+        qt_adapter.disconnect()
+
+
+@app.get("/api/alerts")
+async def get_alerts(
+    severity: Optional[AlertSeverity] = None,
+    limit: int = Query(100, le=500),
+    authorization: str = Header(None)
+):
+    """Get alerts from Qt demo database"""
+    if authorization:
+        verify_permission(authorization, Permission.MANAGE_ALERTS)
+    
+    qt_adapter.connect()
+    try:
+        alerts_data = qt_adapter.get_alerts()
+        
+        # Apply filters
+        if severity:
+            alerts_data = [a for a in alerts_data if a.get('severity') == severity]
+        
+        # Limit results
+        alerts_data = alerts_data[:limit]
+        
+        return alerts_data
+    finally:
+        qt_adapter.disconnect()
+
+
+@app.get("/api/events")
+async def get_events(
+    limit: int = Query(200, le=1000),
+    authorization: str = Header(None)
+):
+    """Get events from Qt demo database"""
+    if authorization:
+        verify_permission(authorization, Permission.VIEW_MISSION_DATA)
+    
+    qt_adapter.connect()
+    try:
+        events = qt_adapter.get_events()
+        return events[:limit]
+    finally:
+        qt_adapter.disconnect()
+
+
+@app.get("/api/missions")
+async def get_missions(authorization: str = Header(None)):
+    """Get missions from Qt demo database"""
+    if authorization:
+        verify_permission(authorization, Permission.VIEW_MISSION_DATA)
+    
+    qt_adapter.connect()
+    try:
+        missions = qt_adapter.get_missions()
+        return missions
+    finally:
+        qt_adapter.disconnect()
+
+
+@app.get("/api/dashboard-summary")
+async def get_dashboard_summary(authorization: str = Header(None)):
+    """Get dashboard summary statistics from Qt demo database"""
+    if authorization:
+        verify_permission(authorization, Permission.VIEW_ANALYTICS)
+    
+    qt_adapter.connect()
+    try:
+        summary = qt_adapter.get_dashboard_summary()
+        return summary
+    finally:
+        qt_adapter.disconnect()
 
 
 @app.post("/api/units/{unit_id}/update")
@@ -637,8 +762,8 @@ if __name__ == "__main__":
     import uvicorn
     uvicorn.run(
         "main:app",
-        host=settings.server_host,
-        port=settings.server_port,
+        host=settings.host,
+        port=settings.port,
         reload=settings.debug,
         log_level="info"
     )

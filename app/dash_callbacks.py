@@ -1,6 +1,7 @@
 """
 MSA Dashboard - Dash Callbacks
 Real-time callbacks for data updates, user interactions, and WebSocket integration
+Enhanced with Qt demo data integration
 """
 
 import json
@@ -34,9 +35,71 @@ role_manager = RoleManager()
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+# API base URL for demo data
+API_BASE_URL = "http://localhost:8000/api"
 
 # Initialize Dash app (will be set by main.py)
 app = None
+
+
+def fetch_demo_data(endpoint: str, params: dict = None) -> List[Dict]:
+    """Fetch data from demo API endpoints"""
+    try:
+        url = f"{API_BASE_URL}/{endpoint}"
+        headers = {"Authorization": "Bearer demo_token"}  # Demo token
+        response = requests.get(url, headers=headers, params=params or {}, timeout=5)
+        
+        if response.status_code == 200:
+            return response.json()
+        else:
+            logger.warning(f"API call failed for {endpoint}: {response.status_code}")
+            return []
+    except Exception as e:
+        logger.error(f"Error fetching demo data from {endpoint}: {e}")
+        return []
+
+
+def fetch_units_data(unit_types=None, risk_levels=None) -> List[Dict]:
+    """Fetch units data from demo API"""
+    params = {}
+    if unit_types and unit_types != "all":
+        params["unit_type"] = unit_types if isinstance(unit_types, list) else [unit_types]
+    if risk_levels and risk_levels != "all":
+        params["status"] = risk_levels if isinstance(risk_levels, list) else [risk_levels]
+    
+    return fetch_demo_data("units", params)
+
+
+def fetch_alerts_data(time_range=None) -> List[Dict]:
+    """Fetch alerts data from demo API"""
+    params = {}
+    if time_range:
+        params["time_range"] = time_range
+    
+    return fetch_demo_data("alerts", params)
+
+
+def fetch_missions_data() -> List[Dict]:
+    """Fetch missions data from demo API"""
+    return fetch_demo_data("missions")
+
+
+def fetch_events_data(time_range=None) -> List[Dict]:
+    """Fetch events data from demo API"""
+    params = {}
+    if time_range:
+        params["time_range"] = time_range
+    
+    return fetch_demo_data("events", params)
+
+
+def fetch_dashboard_summary() -> Dict:
+    """Fetch dashboard summary from demo API"""
+    try:
+        summary_data = fetch_demo_data("dashboard-summary")
+        return summary_data[0] if summary_data else {}
+    except:
+        return {}
 
 
 def register_callbacks(dash_app):
@@ -65,13 +128,14 @@ def register_data_callbacks():
             Output("health-data", "children"),
             Output("alerts-data", "children"),
             Output("missions-data", "children"),
+            Output("events-data", "children"),  # Added events data
             Output("logistics-data", "children"),
             Output("system-status", "children"),
             Output("system-status", "className"),
             Output("last-update-time", "children")
         ],
         [
-            Input("interval-component", "n_intervals"),
+            Input("data-refresh-interval", "n_intervals"),  # Updated interval ID
             Input("manual-refresh", "n_clicks"),
             Input("unit-type-filter", "value"),
             Input("risk-filter", "value"),
@@ -80,28 +144,43 @@ def register_data_callbacks():
         [State("current-role", "children")]
     )
     def update_dashboard_data(n_intervals, manual_refresh, unit_types, risk_levels, time_range, current_role):
-        """Fetch and update all dashboard data"""
+        """Fetch and update all dashboard data from demo API"""
         try:
-            # Simulate data fetching (replace with actual API calls)
+            # Fetch data from demo API endpoints
             units_data = fetch_units_data(unit_types, risk_levels)
-            health_data = fetch_health_data(time_range)
             alerts_data = fetch_alerts_data(time_range)
             missions_data = fetch_missions_data()
-            logistics_data = fetch_logistics_data()
+            events_data = fetch_events_data(time_range)
             
-            # Determine system status
+            # Generate mock health and logistics data for now
+            health_data = generate_mock_health_data(units_data)
+            logistics_data = generate_mock_logistics_data(units_data)
+            
+            # Determine system status based on alerts
             critical_alerts = len([a for a in alerts_data if a.get("severity") == "critical"])
-            system_status = "Critical" if critical_alerts > 5 else "Warning" if critical_alerts > 0 else "Online"
-            status_class = f"status-indicator {system_status.lower()}"
+            warning_alerts = len([a for a in alerts_data if a.get("severity") == "warning"])
+            
+            if critical_alerts > 5:
+                system_status = "Critical"
+                status_class = "status-indicator critical"
+            elif critical_alerts > 0 or warning_alerts > 10:
+                system_status = "Warning"
+                status_class = "status-indicator warning"
+            else:
+                system_status = "Online"
+                status_class = "status-indicator online"
             
             # Update timestamp
             update_time = datetime.now().strftime("%H:%M:%S")
+            
+            logger.info(f"Dashboard data updated: {len(units_data)} units, {len(alerts_data)} alerts, {len(missions_data)} missions, {len(events_data)} events")
             
             return (
                 json.dumps(units_data),
                 json.dumps(health_data),
                 json.dumps(alerts_data),
                 json.dumps(missions_data),
+                json.dumps(events_data),  # Added events data
                 json.dumps(logistics_data),
                 system_status,
                 status_class,
@@ -109,8 +188,58 @@ def register_data_callbacks():
             )
             
         except Exception as e:
-            print(f"Error updating dashboard data: {e}")
-            raise PreventUpdate
+            logger.error(f"Error updating dashboard data: {e}")
+            # Return empty data instead of preventing update
+            return (
+                json.dumps([]),
+                json.dumps([]),
+                json.dumps([]),
+                json.dumps([]),
+                json.dumps([]),
+                json.dumps([]),
+                "Offline",
+                "status-indicator offline",
+                datetime.now().strftime("%H:%M:%S")
+            )
+
+
+def generate_mock_health_data(units_data: List[Dict]) -> List[Dict]:
+    """Generate mock health data based on units"""
+    import random
+    health_data = []
+    
+    for unit in units_data[:10]:  # Limit to first 10 units
+        health_data.append({
+            "unit_id": unit.get("id"),
+            "unit_name": unit.get("name", "Unknown"),
+            "heart_rate": random.randint(60, 120),
+            "body_temp": round(random.uniform(36.0, 38.5), 1),
+            "stress_level": random.randint(1, 10),
+            "fatigue_level": random.randint(1, 10),
+            "timestamp": datetime.now().isoformat()
+        })
+    
+    return health_data
+
+
+def generate_mock_logistics_data(units_data: List[Dict]) -> List[Dict]:
+    """Generate mock logistics data based on units"""
+    import random
+    logistics_data = []
+    
+    for unit in units_data[:15]:  # Limit to first 15 units
+        logistics_data.append({
+            "unit_id": unit.get("id"),
+            "unit_name": unit.get("name", "Unknown"),
+            "fuel_level": random.randint(20, 100),
+            "ammo_level": random.randint(30, 100),
+            "food_level": random.randint(40, 100),
+            "water_level": random.randint(50, 100),
+            "medical_supplies": random.randint(25, 100),
+            "last_resupply": (datetime.now() - timedelta(hours=random.randint(1, 48))).isoformat()
+        })
+    
+    return logistics_data
 
 
 def register_map_callbacks():

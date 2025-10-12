@@ -1,6 +1,7 @@
 """
 MSA Dashboard - Dash Layout
 Interactive dashboard layout with military situational awareness components
+Enhanced with Qt demo data integration
 """
 
 import dash
@@ -11,8 +12,30 @@ import plotly.graph_objects as go
 import plotly.express as px
 from datetime import datetime, timedelta
 import uuid
+import requests
 
 from core.settings import settings, RISK_COLORS, MAP_CONFIG, ROLE_CONFIGS
+
+
+def get_demo_data_summary():
+    """Get demo data summary for dashboard initialization"""
+    try:
+        # This would normally make an API call, but for now we'll return mock data
+        return {
+            'total_units': 40,
+            'active_alerts': 30,
+            'recent_events': 150,
+            'unit_status': {'active': 35, 'warning': 3, 'critical': 2},
+            'alert_counts': {'info': 10, 'warning': 15, 'critical': 5}
+        }
+    except:
+        return {
+            'total_units': 0,
+            'active_alerts': 0,
+            'recent_events': 0,
+            'unit_status': {},
+            'alert_counts': {}
+        }
 
 
 def create_header():
@@ -689,7 +712,10 @@ def create_analyst_layout():
 
 
 def create_dashboard_layout():
-    """Create the main dashboard layout with role-based content"""
+    """Create the main dashboard layout with role-based content and demo data integration"""
+    # Get demo data summary for initialization
+    demo_summary = get_demo_data_summary()
+    
     return html.Div([
         # Authentication modal
         create_login_modal(),
@@ -697,41 +723,55 @@ def create_dashboard_layout():
         # Session storage for authentication
         dcc.Store(id='session-store', storage_type='session'),
         dcc.Store(id='user-role-store', storage_type='session'),
+        dcc.Store(id='demo-data-summary', data=demo_summary, storage_type='session'),
         
         # Header
         create_header(),
+        
+        # Demo data summary banner
+        html.Div([
+            html.Div([
+                html.H4("Demo Sistem Durumu", className="demo-banner-title"),
+                html.Div([
+                    html.Span(f"Toplam Birim: {demo_summary['total_units']}", className="demo-stat"),
+                    html.Span(f"Aktif Uyarı: {demo_summary['active_alerts']}", className="demo-stat"),
+                    html.Span(f"Son Olaylar: {demo_summary['recent_events']}", className="demo-stat"),
+                ], className="demo-stats")
+            ], className="demo-banner-content")
+        ], className="demo-banner"),
         
         # Role-based content container
         html.Div(id="role-based-content", className="role-content-container"),
         
         # Footer
         html.Footer([
-            html.P("MSA Dashboard © 2024 - Military Situational Awareness System", 
+            html.P("MSA Dashboard © 2024 - Military Situational Awareness System (Demo Mode)", 
                    className="footer-text")
         ], className="dashboard-footer"),
         
-        # Data stores
+        # Data stores - enhanced with demo data
         dcc.Store(id='units-data-store'),
         dcc.Store(id='health-data-store'),
         dcc.Store(id='weather-data-store'),
         dcc.Store(id='threats-data-store'),
         dcc.Store(id='alerts-data-store'),
         dcc.Store(id='missions-data-store'),
+        dcc.Store(id='events-data-store'),  # New store for events
         
         # Hidden divs for storing data
         html.Div(id="units-data", style={"display": "none"}),
         html.Div(id="health-data", style={"display": "none"}),
         html.Div(id="alerts-data", style={"display": "none"}),
         html.Div(id="missions-data", style={"display": "none"}),
+        html.Div(id="events-data", style={"display": "none"}),  # New div for events
         html.Div(id="logistics-data", style={"display": "none"}),
         html.Div(id="current-role", children="commander", style={"display": "none"}),
         
-        # Refresh interval
-        dcc.Interval(
-            id='data-refresh-interval',
-            interval=5000,  # 5 seconds
-            n_intervals=0
-        )
+        # Add WebSocket client script
+        html.Script(src="/static/js/websocket-client.js"),
+        
+        # Add dashboard integration script
+        html.Script(src="/static/js/dashboard-integration.js")
         
     ], className="dashboard-container")
 

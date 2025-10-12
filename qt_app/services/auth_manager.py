@@ -207,62 +207,79 @@ class AuthManager(QObject):
     
     def _validate_credentials(self, username: str, password: str) -> Optional[Dict[str, Any]]:
         """
-        Validate user credentials
-        This is a mock implementation - in real app this would call the API
+        Validate user credentials by calling the web API
         """
-        # Mock user database
-        users = {
-            'admin': {
-                'password': 'admin123',
-                'user': {
-                    'user_id': 'admin',
-                    'username': 'admin',
-                    'role': 'commander',
-                    'full_name': 'System Administrator',
-                    'email': 'admin@msa.mil'
-                }
-            },
-            'commander': {
-                'password': 'cmd123',
-                'user': {
-                    'user_id': 'cmd001',
-                    'username': 'commander',
-                    'role': 'commander',
-                    'full_name': 'Field Commander',
-                    'email': 'commander@msa.mil'
-                }
-            },
-            'health': {
-                'password': 'health123',
-                'user': {
-                    'user_id': 'med001',
-                    'username': 'health',
-                    'role': 'health',
-                    'full_name': 'Medical Officer',
-                    'email': 'medical@msa.mil'
-                }
-            },
-            'analyst': {
-                'password': 'ops123',
-                'user': {
-                    'user_id': 'ops001',
-                    'username': 'analyst',
-                    'role': 'analyst',
-                    'full_name': 'Operations Analyst',
-                    'email': 'analyst@msa.mil'
+        import requests
+        
+        try:
+            # Call the actual web API for authentication
+            response = requests.post(
+                "http://localhost:8000/api/auth/login",
+                json={"username": username, "password": password},
+                headers={"Content-Type": "application/json"}
+            )
+            
+            if response.status_code == 200:
+                return response.json()
+            else:
+                return None
+                
+        except requests.exceptions.RequestException as e:
+            print(f"API authentication failed: {e}")
+            
+            # Fallback to mock authentication if API is not available
+            users = {
+                'admin': {
+                    'password': 'admin123',
+                    'user': {
+                        'user_id': 'admin',
+                        'username': 'admin',
+                        'role': 'commander',
+                        'full_name': 'System Administrator',
+                        'email': 'admin@msa.mil'
+                    }
+                },
+                'commander': {
+                    'password': 'cmd123',
+                    'user': {
+                        'user_id': 'cmd001',
+                        'username': 'commander',
+                        'role': 'commander',
+                        'full_name': 'Field Commander',
+                        'email': 'commander@msa.mil'
+                    }
+                },
+                'health': {
+                    'password': 'health123',
+                    'user': {
+                        'user_id': 'med001',
+                        'username': 'health',
+                        'role': 'health',
+                        'full_name': 'Medical Officer',
+                        'email': 'medical@msa.mil'
+                    }
+                },
+                'analyst': {
+                    'password': 'ops123',
+                    'user': {
+                        'user_id': 'ops001',
+                        'username': 'analyst',
+                        'role': 'analyst',
+                        'full_name': 'Operations Analyst',
+                        'email': 'analyst@msa.mil'
+                    }
                 }
             }
-        }
-        
-        user_info = users.get(username)
-        if user_info and user_info['password'] == password:
-            return {
-                'access_token': f'mock_token_{username}_{datetime.now().timestamp()}',
-                'token_type': 'bearer',
-                'user': user_info['user']
-            }
-        
-        return None
+            
+            user_info = users.get(username)
+            if user_info and user_info['password'] == password:
+                return {
+                    'access_token': f'mock_token_{username}_{datetime.now().timestamp()}',
+                    'token_type': 'bearer',
+                    'user': user_info['user']
+                }
+            
+            return None
     
     def _show_token_warning(self):
         """Show token expiry warning"""

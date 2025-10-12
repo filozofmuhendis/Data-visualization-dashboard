@@ -224,6 +224,7 @@ class DashboardData(BaseModel):
 class WSMessage(BaseModel):
     """WebSocket message base"""
     message_type: str
+    data: dict | list = {}
     timestamp: datetime = Field(default_factory=datetime.utcnow)
 
 
