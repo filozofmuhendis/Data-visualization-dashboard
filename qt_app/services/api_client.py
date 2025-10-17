@@ -171,25 +171,23 @@ class APIClient(QObject):
             self.error_occurred.emit("missions", str(e))
             return []
     
-    def get_weather(self):
-        """Get weather data - using health metrics as fallback"""
+    def get_weather(self) -> Dict[str, Any]:
+        """Get weather data; if endpoint is unavailable, return a safe stub to avoid error spam"""
         try:
-            # Since /api/weather doesn't exist, use health metrics
-            response = self.session.get(f"{self.base_url}/api/health-metrics")
+            response = self.session.get(f"{self.base_url}/api/weather")
             if response.status_code == 200:
                 data = response.json()
-                # Transform health metrics to weather format
-                weather_data = {
-                    'temperature': data.get('cpu_usage', 25),
-                    'humidity': data.get('memory_usage', 60),
-                    'wind_speed': data.get('disk_usage', 10),
-                    'visibility': data.get('network_latency', 100)
-                }
-                self.data_received.emit('weather', weather_data)
-            else:
-                self.error_occurred.emit(f"Failed to get weather: {response.status_code}")
-        except Exception as e:
-            self.error_occurred.emit(f"Error getting weather: {str(e)}")
+                if isinstance(data, dict):
+                    return data
+        except requests.exceptions.RequestException:
+            pass
+        # Safe stub values
+        return {
+            'temperature': 24,
+            'humidity': 60,
+            'wind_speed': 8,
+            'visibility': 10
+        }
     
     def get_threats(self):
         """Get threats data - using alerts as fallback"""

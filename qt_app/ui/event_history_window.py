@@ -12,9 +12,9 @@ from PyQt5.QtGui import QColor, QFont, QIcon
 from datetime import datetime, timedelta
 import json
 
-from database.database_manager import DatabaseManager
-from database.models import Event
-from utils.styles import get_status_color, get_risk_level_style
+from ..database.database_manager import DatabaseManager
+from ..database.models import Event
+from ..utils.styles import get_status_color, get_risk_level_style
 
 class EventHistoryWorker(QThread):
     """Worker thread for loading events"""

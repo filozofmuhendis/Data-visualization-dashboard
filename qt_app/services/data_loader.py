@@ -8,9 +8,9 @@ from typing import List, Dict, Any
 from datetime import datetime, timedelta
 import random
 
-from database.database_manager import get_database_manager
-from services.demo_data_generator import DemoDataGenerator
-from database.models import Unit, Alert, Mission, Equipment, Event, SystemMetric
+from ..database.database_manager import get_database_manager
+from .demo_data_generator import DemoDataGenerator
+from ..database.models import Unit, Alert, Mission, Equipment, Event, SystemMetric
 
 
 class DataLoader:

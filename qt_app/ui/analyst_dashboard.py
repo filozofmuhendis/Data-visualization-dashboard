@@ -15,7 +15,7 @@ from PyQt5.QtCore import Qt, pyqtSignal, QTimer, pyqtSlot, QDate, QTime
 from PyQt5.QtGui import QFont, QIcon, QPixmap, QPalette
 import json
 from datetime import datetime, timedelta
-from utils.styles import get_status_color, get_risk_level_style
+from ..utils.styles import get_status_color, get_risk_level_style
 
 
 class AnalystDashboard(QWidget):

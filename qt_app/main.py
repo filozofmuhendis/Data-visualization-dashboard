@@ -10,13 +10,13 @@ from PyQt5.QtCore import Qt, QTimer, pyqtSignal
 from PyQt5.QtGui import QIcon, QFont
 
 # Import custom modules
-from ui.login_window import LoginWindow
-from ui.commander_dashboard import CommanderDashboard
-from ui.health_dashboard import HealthDashboard
-from ui.analyst_dashboard import AnalystDashboard
-from services.api_client import APIClient
-from services.auth_manager import AuthManager
-from utils.styles import apply_dark_theme
+from .ui.login_window import LoginWindow
+from .ui.commander_dashboard import CommanderDashboard
+from .ui.health_dashboard import HealthDashboard
+from .ui.analyst_dashboard import AnalystDashboard
+from .utils.styles import apply_dark_theme
+from .services.api_client import APIClient
+from .services.auth_manager import AuthManager
 
 
 class MSAApplication(QMainWindow):
@@ -116,22 +116,22 @@ class MSAApplication(QMainWindow):
         self.login_window.reset_form()
     
     def on_login_successful(self, user_data):
-        """Handle successful login"""
-        self.user_logged_in.emit(user_data)
-        
+        """Handle successful login and redirect to appropriate dashboard"""
         # Set API client token
-        self.api_client.set_token(user_data.get('access_token'))
+        token = user_data.get('access_token')
+        if token:
+            self.api_client.set_token(token)
         
-        # Show appropriate dashboard based on role
+        # Show appropriate dashboard based on role (aligned with backend roles)
         role = user_data.get('user', {}).get('role', 'commander')
         
         if role == 'commander':
             self.stacked_widget.setCurrentWidget(self.commander_dashboard)
             self.commander_dashboard.initialize_dashboard(user_data)
-        elif role == 'health':
+        elif role == 'health_officer':
             self.stacked_widget.setCurrentWidget(self.health_dashboard)
             self.health_dashboard.initialize_dashboard(user_data)
-        elif role == 'analyst':
+        elif role == 'operations_analyst':
             self.stacked_widget.setCurrentWidget(self.analyst_dashboard)
             self.analyst_dashboard.initialize_dashboard(user_data)
         else:
@@ -156,7 +156,7 @@ class MSAApplication(QMainWindow):
     
     def show_event_history(self):
         """Show event history window"""
-        from ui.event_history_window import EventHistoryWindow
+        from .ui.event_history_window import EventHistoryWindow
         
         if not hasattr(self, 'event_history_window'):
             self.event_history_window = EventHistoryWindow(self)

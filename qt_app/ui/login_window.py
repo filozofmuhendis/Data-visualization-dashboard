@@ -10,7 +10,7 @@ from PyQt5.QtWidgets import (
 )
 from PyQt5.QtCore import Qt, pyqtSignal, QTimer, QThread, pyqtSlot
 from PyQt5.QtGui import QPixmap, QFont, QPalette, QMovie
-from utils.styles import apply_login_styles, get_status_color
+from ..utils.styles import apply_login_styles, get_status_color
 
 
 class LoginWorker(QThread):
@@ -106,8 +106,8 @@ class LoginWindow(QWidget):
         self.role_combo = QComboBox()
         self.role_combo.addItems([
             "Select Role...",
-            "Commander (admin/admin123)",
-            "Health Officer (health/health123)", 
+            "Commander (commander/cmd123)",
+            "Health Officer (health_officer/health123)", 
             "Operations Analyst (analyst/ops123)"
         ])
         self.role_combo.setMinimumHeight(40)
@@ -163,10 +163,10 @@ class LoginWindow(QWidget):
     def on_role_selected(self, role_text):
         """Handle quick role selection for demo"""
         if "Commander" in role_text:
-            self.username_input.setText("admin")
-            self.password_input.setText("admin123")
+            self.username_input.setText("commander")
+            self.password_input.setText("cmd123")
         elif "Health" in role_text:
-            self.username_input.setText("health")
+            self.username_input.setText("health_officer")
             self.password_input.setText("health123")
         elif "Analyst" in role_text:
             self.username_input.setText("analyst")

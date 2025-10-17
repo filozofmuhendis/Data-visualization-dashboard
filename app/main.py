@@ -30,7 +30,7 @@ from core.models import (
     WSMessage, WSUnitUpdate, WSAlertMessage, WSHealthUpdate, WSThreatAlert,
     RiskLevel, AlertSeverity, UnitType, MissionPhase, UserRole
 )
-from core.database import get_db, create_tables, UnitDB, HealthMetricsDB, LogisticsStatusDB, AlertDB, engine
+from core.database import get_db, create_tables, UnitDB, HealthMetricsDB, LogisticsStatusDB, AlertDB, engine, WeatherDataDB
 from core.qt_database_adapter import qt_adapter
 from core.settings import settings, ROLE_CONFIGS
 from services.role_manager import role_manager, Permission
@@ -323,6 +323,475 @@ async def get_dashboard_config(authorization: str = Header(None)):
         }
     except ValueError:
         raise HTTPException(status_code=400, detail="Invalid role")
+
+# Helper function to verify permissions
+def verify_permission(authorization: str, required_permission: Permission) -> dict:
+    """Verify user has required permission"""
+    if not authorization or not authorization.startswith("Bearer "):
+        raise HTTPException(status_code=401, detail="Invalid authorization header")
+    
+    token = authorization.split(" ")[1]
+    
+    # Demo token bypass for testing
+    if token == "demo_token":
+        return {
+            "user_id": "demo_user",
+            "username": "demo",
+            "role": "commander",
+            "permissions": [p.value for p in [
+                Permission.VIEW_ALL_UNITS,
+                Permission.VIEW_HEALTH_DATA,
+                Permission.VIEW_LOGISTICS_DATA,
+                Permission.VIEW_THREAT_DATA,
+                Permission.VIEW_MISSION_DATA,
+                Permission.MANAGE_ALERTS,
+                Permission.VIEW_ANALYTICS
+            ]]
+        }
+    
+    payload = role_manager.verify_jwt_token(token)
+    
+    if not payload:
+        raise HTTPException(status_code=401, detail="Invalid token")
+    
+    user_permissions = [Permission(p) for p in payload["permissions"]]
+    if required_permission not in user_permissions:
+        raise HTTPException(status_code=403, detail="Insufficient permissions")
+    
+    return payload
+
+@app.get("/")
+async def root():
+    """Redirect to dashboard"""
+    return {"message": "MSA Dashboard API", "dashboard_url": "/dashboard/"}
+
+
+@app.get("/api/health")
+async def health_check():
+    """Health check endpoint"""
+    return {
+        "status": "healthy",
+        "timestamp": datetime.utcnow(),
+        "version": settings.app_version
+    }
+
+
+# Unit endpoints - Using Qt Demo Data
+@app.get("/api/units")
+async def get_units(
+    status: Optional[str] = None,
+    unit_type: Optional[str] = None,
+    authorization: str = Header(None, alias="Authorization")
+):
+    """Get all units from Qt demo database"""
+    # Verify authentication
+    if authorization:
+        verify_permission(authorization, Permission.VIEW_ALL_UNITS)
+    
+    # Get units from Qt database
+    qt_adapter.connect()
+    try:
+        units_data = qt_adapter.get_units()
+        return units_data
+    finally:
+        qt_adapter.disconnect()
+
+
+@app.get("/api/units/{unit_id}")
+async def get_unit(unit_id: str, authorization: str = Header(None)):
+    """Get specific unit by ID from Qt demo database"""
+    if authorization:
+        verify_permission(authorization, Permission.VIEW_ALL_UNITS)
+    
+    qt_adapter.connect()
+    try:
+        units = qt_adapter.get_units()
+        unit = next((u for u in units if u['unit_id'] == unit_id), None)
+        
+        if not unit:
+            raise HTTPException(status_code=404, detail="Unit not found")
+        
+        return unit
+    finally:
+        qt_adapter.disconnect()
+
+
+@app.get("/api/alerts")
+async def get_alerts(
+    severity: Optional[AlertSeverity] = None,
+    limit: int = Query(100, le=500),
+    authorization: str = Header(None)
+):
+    """Get alerts from Qt demo database"""
+    if authorization:
+        verify_permission(authorization, Permission.MANAGE_ALERTS)
+    
+    qt_adapter.connect()
+    try:
+        alerts_data = qt_adapter.get_alerts()
+        
+        # Apply filters
+        if severity:
+            alerts_data = [a for a in alerts_data if a.get('severity') == severity]
+        
+        # Limit results
+        alerts_data = alerts_data[:limit]
+        
+        return alerts_data
+    finally:
+        qt_adapter.disconnect()
+
+
+@app.get("/api/events")
+async def get_events(
+    limit: int = Query(200, le=1000),
+    authorization: str = Header(None)
+):
+    """Get events from Qt demo database"""
+    if authorization:
+        verify_permission(authorization, Permission.VIEW_MISSION_DATA)
+    
+    qt_adapter.connect()
+    try:
+        events = qt_adapter.get_events()
+        return events[:limit]
+    finally:
+        qt_adapter.disconnect()
+
+
+@app.get("/api/missions")
+async def get_missions(authorization: str = Header(None)):
+    """Get missions from Qt demo database"""
+    if authorization:
+        verify_permission(authorization, Permission.VIEW_MISSION_DATA)
+    
+    qt_adapter.connect()
+    try:
+        missions = qt_adapter.get_missions()
+        return missions
+    finally:
+        qt_adapter.disconnect()
+
+
+@app.get("/api/dashboard-summary")
+async def get_dashboard_summary(authorization: str = Header(None)):
+    """Get dashboard summary statistics from Qt demo database"""
+    if authorization:
+        verify_permission(authorization, Permission.VIEW_ANALYTICS)
+    
+    qt_adapter.connect()
+    try:
+        summary = qt_adapter.get_dashboard_summary()
+        return summary
+    finally:
+        qt_adapter.disconnect()
+
+
+@app.post("/api/units/{unit_id}/update")
+async def update_unit(
+    unit_id: str,
+    update: UnitUpdate,
+    db: Session = Depends(get_db)
+):
+    """Update unit position and status"""
+    unit = db.query(UnitDB).filter(UnitDB.unit_id == unit_id).first()
+    if not unit:
+        raise HTTPException(status_code=404, detail="Unit not found")
+    
+    # Update fields
+    if update.position:
+        unit.latitude = update.position.latitude
+        unit.longitude = update.position.longitude
+        if update.position.altitude:
+            unit.altitude = update.position.altitude
+    
+    if update.heading is not None:
+        unit.heading = update.heading
+    if update.speed is not None:
+        unit.speed = update.speed
+    if update.status:
+        unit.status = update.status
+    
+    unit.last_seen = datetime.utcnow()
+    unit.updated_at = datetime.utcnow()
+    
+    db.commit()
+    db.refresh(unit)
+    
+    # Broadcast update via WebSocket
+    unit_data = Unit(
+        unit_id=unit.unit_id,
+        name=unit.name,
+        unit_type=unit.unit_type,
+        position={
+            "latitude": unit.latitude,
+            "longitude": unit.longitude,
+            "altitude": unit.altitude
+        },
+        heading=unit.heading,
+        speed=unit.speed,
+        status=unit.status,
+        last_seen=unit.last_seen,
+        timestamp=unit.updated_at
+    )
+    
+    ws_message = WSUnitUpdate(data=unit_data)
+    await manager.broadcast(ws_message.model_dump_json())
+    
+    return {"status": "updated", "unit_id": unit_id}
+
+
+# Health endpoints
+@app.get("/api/health-metrics", response_model=List[HealthMetrics])
+async def get_health_metrics(
+    unit_id: Optional[str] = None,
+    hours: int = 24,
+    db: Session = Depends(get_db)
+):
+    """Get health metrics with optional filtering"""
+    query = db.query(HealthMetricsDB)
+    
+    if unit_id:
+        query = query.filter(HealthMetricsDB.unit_id == unit_id)
+    
+    # Filter by time range
+    since = datetime.utcnow() - timedelta(hours=hours)
+    query = query.filter(HealthMetricsDB.timestamp >= since)
+    
+    metrics = query.order_by(desc(HealthMetricsDB.timestamp)).limit(1000).all()
+    
+    result = []
+    for metric in metrics:
+        result.append(HealthMetrics(
+            unit_id=metric.unit_id,
+            heart_rate=metric.heart_rate,
+            spo2=metric.spo2,
+            stress_index=metric.stress_index,
+            body_temperature=metric.body_temperature,
+            risk_level=metric.risk_level,
+            timestamp=metric.timestamp
+        ))
+    
+    return result
+
+
+@app.post("/api/health-metrics")
+async def create_health_metric(
+    metric: HealthMetrics,
+    db: Session = Depends(get_db)
+):
+    """Create new health metric entry"""
+    db_metric = HealthMetricsDB(
+        unit_id=metric.unit_id,
+        heart_rate=metric.heart_rate,
+        spo2=metric.spo2,
+        stress_index=metric.stress_index,
+        body_temperature=metric.body_temperature,
+        risk_level=metric.risk_level,
+        timestamp=metric.timestamp
+    )
+    
+    db.add(db_metric)
+    db.commit()
+    db.refresh(db_metric)
+    
+    # Broadcast health update
+    ws_message = WSHealthUpdate(data=metric)
+    await manager.broadcast(ws_message.model_dump_json())
+    
+    return {"status": "created", "id": db_metric.id}
+
+
+# Alert endpoints
+@app.get("/api/alerts", response_model=List[Alert])
+async def get_alerts(
+    severity: Optional[AlertSeverity] = None,
+    acknowledged: Optional[bool] = None,
+    resolved: Optional[bool] = None,
+    limit: int = 100,
+    db: Session = Depends(get_db)
+):
+    """Get alerts with filtering"""
+    query = db.query(AlertDB)
+    
+    if severity:
+        query = query.filter(AlertDB.severity == severity)
+    if acknowledged is not None:
+        query = query.filter(AlertDB.acknowledged == acknowledged)
+    if resolved is not None:
+        query = query.filter(AlertDB.resolved == resolved)
+    
+    alerts = query.order_by(desc(AlertDB.timestamp)).limit(limit).all()
+    
+    result = []
+    for alert in alerts:
+        result.append(Alert(
+            alert_id=alert.alert_id,
+            unit_id=alert.unit_id,
+            alert_type=alert.alert_type,
+            severity=alert.severity,
+            title=alert.title,
+            message=alert.message,
+            acknowledged=alert.acknowledged,
+            acknowledged_by=alert.acknowledged_by,
+            acknowledged_at=alert.acknowledged_at,
+            resolved=alert.resolved,
+            resolved_at=alert.resolved_at,
+            timestamp=alert.timestamp
+        ))
+    
+    return result
+
+
+@app.post("/api/alerts")
+async def create_alert(alert: Alert, db: Session = Depends(get_db)):
+    """Create new alert"""
+    db_alert = AlertDB(
+        alert_id=alert.alert_id,
+        unit_id=alert.unit_id,
+        alert_type=alert.alert_type,
+        severity=alert.severity,
+        title=alert.title,
+        message=alert.message,
+        timestamp=alert.timestamp
+    )
+    
+    db.add(db_alert)
+    db.commit()
+    db.refresh(db_alert)
+    
+    # Broadcast alert
+    ws_message = WSAlertMessage(data=alert)
+    await manager.broadcast(ws_message.model_dump_json())
+    
+    return {"status": "created", "alert_id": alert.alert_id}
+
+
+@app.put("/api/alerts/{alert_id}/acknowledge")
+async def acknowledge_alert(
+    alert_id: str,
+    acknowledged_by: str,
+    db: Session = Depends(get_db)
+):
+    """Acknowledge an alert"""
+    alert = db.query(AlertDB).filter(AlertDB.alert_id == alert_id).first()
+    if not alert:
+        raise HTTPException(status_code=404, detail="Alert not found")
+    
+    alert.acknowledged = True
+    alert.acknowledged_by = acknowledged_by
+    alert.acknowledged_at = datetime.utcnow()
+    
+    db.commit()
+    
+    return {"status": "acknowledged", "alert_id": alert_id}
+
+
+# System status endpoint
+@app.get("/api/system-status", response_model=SystemStatus)
+async def get_system_status(db: Session = Depends(get_db)):
+    """Get overall system status"""
+    total_units = db.query(UnitDB).count()
+    active_units = db.query(UnitDB).filter(
+        UnitDB.last_seen >= datetime.utcnow() - timedelta(minutes=5)
+    ).count()
+    
+    critical_alerts = db.query(AlertDB).filter(
+        and_(
+            AlertDB.severity.in_([AlertSeverity.CRITICAL, AlertSeverity.EMERGENCY]),
+            AlertDB.resolved == False
+        )
+    ).count()
+    
+    # Determine system health
+    if critical_alerts > 0:
+        system_health = RiskLevel.RED
+    elif active_units < total_units * 0.9:
+        system_health = RiskLevel.AMBER
+    else:
+        system_health = RiskLevel.GREEN
+    
+    return SystemStatus(
+        total_units=total_units,
+        active_units=active_units,
+        critical_alerts=critical_alerts,
+        active_missions=0,  # TODO: Implement mission counting
+        system_health=system_health
+    )
+
+
+# WebSocket endpoint
+@app.websocket("/ws")
+async def websocket_endpoint(websocket: WebSocket, user_id: Optional[str] = None):
+    """WebSocket endpoint for real-time updates"""
+    await manager.connect(websocket, user_id)
+    try:
+        while True:
+            # Keep connection alive and handle incoming messages
+            data = await websocket.receive_text()
+            message = json.loads(data)
+            
+            # Handle different message types
+            if message.get("type") == "ping":
+                await websocket.send_text(json.dumps({"type": "pong"}))
+            elif message.get("type") == "subscribe":
+                # Handle subscription to specific data types
+                await websocket.send_text(json.dumps({
+                    "type": "subscribed",
+                    "channels": message.get("channels", [])
+                }))
+            
+    except WebSocketDisconnect:
+        manager.disconnect(websocket, user_id)
+    except Exception as e:
+        logger.error(f"WebSocket error: {e}")
+        manager.disconnect(websocket, user_id)
+
+
+# Dashboard configuration endpoint
+@app.get("/api/dashboard-config/{role}")
+async def get_dashboard_config(role: str):
+    """Get dashboard configuration for specific role"""
+    if role not in ROLE_CONFIGS:
+        raise HTTPException(status_code=404, detail="Role configuration not found")
+    
+    return ROLE_CONFIGS[role]
+
+
+@app.get("/api/weather", response_model=WeatherData)
+async def get_weather(db: Session = Depends(get_db)):
+    """Get latest weather data; returns stub if no records exist"""
+    latest = db.query(WeatherDataDB).order_by(desc(WeatherDataDB.timestamp)).first()
+    if latest:
+        return WeatherData(
+            station_id=latest.station_id,
+            position={
+                "latitude": latest.latitude,
+                "longitude": latest.longitude,
+                "altitude": latest.altitude,
+            },
+            temperature=latest.temperature,
+            humidity=latest.humidity,
+            wind_speed=latest.wind_speed,
+            wind_direction=latest.wind_direction,
+            visibility=latest.visibility,
+            pressure=latest.pressure,
+            timestamp=latest.timestamp,
+        )
+    # Fallback stub values to ensure frontend/API client works even without DB data
+    return WeatherData(
+        station_id="stub-001",
+        position={"latitude": 41.0, "longitude": 29.0, "altitude": None},
+        temperature=24.0,
+        humidity=60.0,
+        wind_speed=8.0,
+        wind_direction=180.0,
+        visibility=10.0,
+        pressure=None,
+    )
+    
+    return {"status": "updated", "unit_id": unit_id}
+
 
 # Helper function to verify permissions
 def verify_permission(authorization: str, required_permission: Permission) -> dict:

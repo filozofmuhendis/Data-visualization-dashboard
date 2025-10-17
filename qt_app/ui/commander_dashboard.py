@@ -18,10 +18,10 @@ import json
 import tempfile
 import os
 from datetime import datetime
-from utils.styles import get_status_color, get_risk_level_style, get_unit_type_icon
-from ui.map_widget import InteractiveMapWidget
-from services.auth_manager import get_auth_manager
-from services.heatmap_service import get_heatmap_service
+from ..utils.styles import get_status_color, get_risk_level_style, get_unit_type_icon
+from .map_widget import InteractiveMapWidget
+from ..services.auth_manager import get_auth_manager
+from ..services.heatmap_service import get_heatmap_service
 
 
 class CommanderDashboard(QWidget):

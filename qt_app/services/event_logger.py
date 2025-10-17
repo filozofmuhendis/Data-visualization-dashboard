@@ -7,8 +7,8 @@ from datetime import datetime
 from typing import Dict, Any, Optional
 import logging
 
-from database.database_manager import DatabaseManager
-from database.models import Event
+from ..database.database_manager import DatabaseManager
+from ..database.models import Event
 
 class EventLogger(QObject):
     """Service for logging events to database"""

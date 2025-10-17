@@ -6,7 +6,7 @@ Handles user authentication, token management, and session persistence
 import json
 import os
 from datetime import datetime, timedelta
-from services.event_logger import get_event_logger
+from .event_logger import get_event_logger
 from typing import Dict, Optional, Any
 from PyQt5.QtCore import QObject, pyqtSignal, QTimer, QSettings
 from PyQt5.QtWidgets import QMessageBox
@@ -124,18 +124,18 @@ class AuthManager(QObject):
         if not role:
             return False
         
-        # Define role permissions
+        # Define role permissions (aligned with backend roles)
         permissions = {
             'commander': [
                 'view_all_units', 'view_health', 'view_logistics', 
                 'view_missions', 'view_alerts', 'acknowledge_alerts',
                 'update_units', 'create_missions', 'system_admin'
             ],
-            'health': [
+            'health_officer': [
                 'view_health', 'view_units_limited', 'view_alerts_health',
                 'acknowledge_health_alerts', 'view_logistics_medical'
             ],
-            'analyst': [
+            'operations_analyst': [
                 'view_units_limited', 'view_logistics', 'view_missions',
                 'view_alerts_ops', 'acknowledge_ops_alerts', 'view_analytics'
             ]
@@ -220,7 +220,23 @@ class AuthManager(QObject):
             )
             
             if response.status_code == 200:
-                return response.json()
+                server_data = response.json()
+                # Normalize backend response: map user_info -> user
+                user_info = server_data.get('user_info', {})
+                normalized = {
+                    'access_token': server_data.get('access_token'),
+                    'token_type': server_data.get('token_type', 'bearer'),
+                    'user': {
+                        'user_id': user_info.get('user_id'),
+                        'username': user_info.get('username'),
+                        'role': user_info.get('role'),
+                        # Provide sensible defaults if not present
+                        'full_name': user_info.get('full_name', user_info.get('username', 'User')),
+                        'email': user_info.get('email', '')
+                    },
+                    'expires_at': server_data.get('expires_at')
+                }
+                return normalized
             else:
                 return None
                 
@@ -249,12 +265,12 @@ class AuthManager(QObject):
                         'email': 'commander@msa.mil'
                     }
                 },
-                'health': {
+                'health_officer': {
                     'password': 'health123',
                     'user': {
                         'user_id': 'med001',
-                        'username': 'health',
-                        'role': 'health',
+                        'username': 'health_officer',
+                        'role': 'health_officer',
                         'full_name': 'Medical Officer',
                         'email': 'medical@msa.mil'
                     }
@@ -264,7 +280,7 @@ class AuthManager(QObject):
                     'user': {
                         'user_id': 'ops001',
                         'username': 'analyst',
-                        'role': 'analyst',
+                        'role': 'operations_analyst',
                         'full_name': 'Operations Analyst',
                         'email': 'analyst@msa.mil'
                     }

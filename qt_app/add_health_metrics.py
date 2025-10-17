@@ -13,7 +13,7 @@ from datetime import datetime, timedelta
 # Add the current directory to Python path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from database.database_manager import get_database_manager
+from .database.database_manager import get_database_manager
 
 
 def create_health_metrics_table():
