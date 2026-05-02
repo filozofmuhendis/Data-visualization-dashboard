@@ -13,8 +13,8 @@ from datetime import datetime
 # Add the current directory to Python path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from services.data_loader import get_data_loader
-from database.database_manager import get_database_manager
+from .services.data_loader import get_data_loader
+from .database.database_manager import get_database_manager
 
 
 def setup_logging():

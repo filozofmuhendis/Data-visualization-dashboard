@@ -374,46 +374,43 @@ The system includes comprehensive data simulators for testing:
 ## 🚀 Deployment
 
 ### Docker Deployment
-
-1. **Create Dockerfile**
-```dockerfile
-FROM python:3.9-slim
-
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install -r requirements.txt
-
-COPY . .
-EXPOSE 8000
-
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+1. Prepare `.env` (use `.env.example`) and ensure `uploads/` exists.
+2. Build backend image:
+```bash
+docker build -t msa-backend:latest .
 ```
-
-2. **Docker Compose**
+3. Run with Docker Compose (backend + Nginx):
 ```yaml
-version: '3.8'
+version: "3.8"
 services:
-  app:
-    build: .
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "8000:8000"
-    environment:
-      - DATABASE_URL=postgresql://postgres:password@db:5432/msa_dashboard
-    depends_on:
-      - db
-  
-  db:
-    image: postgres:13
-    environment:
-      - POSTGRES_DB=msa_dashboard
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=password
+    env_file:
+      - .env
+    restart: always
     volumes:
-      - postgres_data:/var/lib/postgresql/data
-
-volumes:
-  postgres_data:
+      - ./msa_dashboard.db:/app/msa_dashboard.db
+      - ./uploads:/app/uploads
+      - ./static:/app/static
+  nginx:
+    image: nginx:alpine
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+    restart: always
+    volumes:
+      - ./deploy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
 ```
+Start services:
+```bash
+docker compose up -d
+```
+Access API via `http://localhost/` (proxied) or `http://localhost:8000/` (direct).
 
 ### Production Deployment
 

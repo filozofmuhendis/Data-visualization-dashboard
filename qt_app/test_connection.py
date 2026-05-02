@@ -62,14 +62,16 @@ class ConnectionTestWorker(QThread):
         try:
             auth_data = {
                 "username": "commander",
-                "password": "demo123"
+                "password": "cmd123"
             }
-            response = requests.post(f"{self.base_url}/auth/login", json=auth_data, timeout=5)
+            response = requests.post(f"{self.base_url}/api/auth/login", json=auth_data, timeout=5)
             if response.status_code == 200:
                 results.append("✅ Authentication: Login successful")
-                token_data = response.json()
-                if "access_token" in token_data:
-                    results.append("   🔑 Token received")
+                token = response.json().get("access_token")
+                if token:
+                    results.append("✅ Token received")
+                else:
+                    results.append("⚠️ No token in response")
             else:
                 results.append(f"⚠️ Authentication: {response.status_code}")
         except Exception as e:

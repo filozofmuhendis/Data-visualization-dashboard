@@ -9,6 +9,7 @@ from typing import Dict, List, Optional, Any
 from PyQt5.QtCore import QObject, pyqtSignal, QTimer
 from PyQt5.QtNetwork import QNetworkAccessManager, QNetworkRequest, QNetworkReply
 from PyQt5.QtCore import QUrl, QByteArray
+import os
 
 
 class APIClient(QObject):
@@ -20,7 +21,10 @@ class APIClient(QObject):
     
     def __init__(self, base_url: str = "http://localhost:8000"):
         super().__init__()
-        self.base_url = base_url.rstrip('/')
+        # Allow overriding base URL via environment variable (API_BASE_URL)
+        env_base = os.getenv("API_BASE_URL")
+        effective_base = (env_base or base_url).rstrip('/')
+        self.base_url = effective_base
         self.token = None
         self.session = requests.Session()
         

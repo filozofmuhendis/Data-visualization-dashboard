@@ -1,0 +1,1270 @@
+2025-10-08 01:17:15,382 - database.database_manager - INFO - Database initialized successfully
+2025-10-08 01:17:15,383 - database.database_manager - INFO - Database initialized successfully
+2025-10-08 01:17:15,390 - services.data_loader - INFO - Cleared units table
+2025-10-08 01:17:15,391 - services.data_loader - INFO - Cleared alerts table
+2025-10-08 01:17:15,391 - services.data_loader - INFO - Cleared missions table
+2025-10-08 01:17:15,392 - services.data_loader - INFO - Cleared equipment table
+2025-10-08 01:17:15,392 - services.data_loader - INFO - Cleared events table
+2025-10-08 01:17:15,393 - services.data_loader - INFO - Cleared system_metrics table
+2025-10-08 01:17:15,401 - services.data_loader - INFO - All demo data cleared successfully
+2025-10-08 01:17:15,409 - root - ERROR - Setup failed: 'DemoDataGenerator' object has no attribute 'generate_unit'
+Traceback (most recent call last):
+  File "C:\Users\pc\MyRepo\Data-visualization-dashboard\qt_app\demo_setup.py", line 167, in main
+    test_database_operations()
+  File "C:\Users\pc\MyRepo\Data-visualization-dashboard\qt_app\demo_setup.py", line 91, in test_database_operations
+    unit = data_loader.data_generator.generate_unit()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DemoDataGenerator' object has no attribute 'generate_unit'
+2025-10-08 01:18:49,245 - database.database_manager - INFO - Database initialized successfully
+2025-10-08 01:18:49,246 - database.database_manager - INFO - Database initialized successfully
+2025-10-08 01:18:49,248 - services.data_loader - INFO - Cleared units table
+2025-10-08 01:18:49,249 - services.data_loader - INFO - Cleared alerts table
+2025-10-08 01:18:49,249 - services.data_loader - INFO - Cleared missions table
+2025-10-08 01:18:49,249 - services.data_loader - INFO - Cleared equipment table
+2025-10-08 01:18:49,249 - services.data_loader - INFO - Cleared events table
+2025-10-08 01:18:49,251 - services.data_loader - INFO - Cleared system_metrics table
+2025-10-08 01:18:49,256 - services.data_loader - INFO - All demo data cleared successfully
+2025-10-08 01:18:49,297 - services.data_loader - INFO - Creating realistic military scenario...
+2025-10-08 01:18:49,301 - services.data_loader - INFO - Cleared units table
+2025-10-08 01:18:49,303 - services.data_loader - INFO - Cleared alerts table
+2025-10-08 01:18:49,304 - services.data_loader - INFO - Cleared missions table
+2025-10-08 01:18:49,304 - services.data_loader - INFO - Cleared equipment table
+2025-10-08 01:18:49,308 - services.data_loader - INFO - Cleared events table
+2025-10-08 01:18:49,308 - services.data_loader - INFO - Cleared system_metrics table
+2025-10-08 01:18:49,315 - services.data_loader - INFO - All demo data cleared successfully
+2025-10-08 01:18:49,886 - services.data_loader - INFO - Loading 80 equipment items...
+2025-10-08 01:18:50,016 - services.data_loader - INFO - Loaded 20/80 equipment items
+2025-10-08 01:18:50,169 - services.data_loader - INFO - Loaded 40/80 equipment items
+2025-10-08 01:18:50,299 - services.data_loader - INFO - Loaded 60/80 equipment items
+2025-10-08 01:18:50,424 - services.data_loader - INFO - Loaded 80/80 equipment items
+2025-10-08 01:18:50,425 - services.data_loader - INFO - Successfully loaded 80 equipment items
+2025-10-08 01:18:50,435 - database.database_manager - INFO - Event added with ID: 9
+2025-10-08 01:18:50,444 - database.database_manager - INFO - Event added with ID: 10
+2025-10-08 01:18:50,452 - database.database_manager - INFO - Event added with ID: 11
+2025-10-08 01:18:50,463 - database.database_manager - INFO - Event added with ID: 12
+2025-10-08 01:18:50,471 - database.database_manager - INFO - Event added with ID: 13
+2025-10-08 01:18:50,477 - database.database_manager - INFO - Event added with ID: 14
+2025-10-08 01:18:50,484 - database.database_manager - INFO - Event added with ID: 15
+2025-10-08 01:18:50,490 - database.database_manager - INFO - Event added with ID: 16
+2025-10-08 01:18:50,498 - database.database_manager - INFO - Event added with ID: 17
+2025-10-08 01:18:50,503 - database.database_manager - INFO - Event added with ID: 18
+2025-10-08 01:18:50,509 - database.database_manager - INFO - Event added with ID: 19
+2025-10-08 01:18:50,515 - database.database_manager - INFO - Event added with ID: 20
+2025-10-08 01:18:50,521 - database.database_manager - INFO - Event added with ID: 21
+2025-10-08 01:18:50,528 - database.database_manager - INFO - Event added with ID: 22
+2025-10-08 01:18:50,535 - database.database_manager - INFO - Event added with ID: 23
+2025-10-08 01:18:50,541 - database.database_manager - INFO - Event added with ID: 24
+2025-10-08 01:18:50,549 - database.database_manager - INFO - Event added with ID: 25
+2025-10-08 01:18:50,556 - database.database_manager - INFO - Event added with ID: 26
+2025-10-08 01:18:50,565 - database.database_manager - INFO - Event added with ID: 27
+2025-10-08 01:18:50,572 - database.database_manager - INFO - Event added with ID: 28
+2025-10-08 01:18:50,578 - database.database_manager - INFO - Event added with ID: 29
+2025-10-08 01:18:50,584 - database.database_manager - INFO - Event added with ID: 30
+2025-10-08 01:18:50,590 - database.database_manager - INFO - Event added with ID: 31
+2025-10-08 01:18:50,597 - database.database_manager - INFO - Event added with ID: 32
+2025-10-08 01:18:50,602 - database.database_manager - INFO - Event added with ID: 33
+2025-10-08 01:18:50,610 - database.database_manager - INFO - Event added with ID: 34
+2025-10-08 01:18:50,622 - database.database_manager - INFO - Event added with ID: 35
+2025-10-08 01:18:50,630 - database.database_manager - INFO - Event added with ID: 36
+2025-10-08 01:18:50,638 - database.database_manager - INFO - Event added with ID: 37
+2025-10-08 01:18:50,647 - database.database_manager - INFO - Event added with ID: 38
+2025-10-08 01:18:50,655 - database.database_manager - INFO - Event added with ID: 39
+2025-10-08 01:18:50,664 - database.database_manager - INFO - Event added with ID: 40
+2025-10-08 01:18:50,671 - database.database_manager - INFO - Event added with ID: 41
+2025-10-08 01:18:50,680 - database.database_manager - INFO - Event added with ID: 42
+2025-10-08 01:18:50,687 - database.database_manager - INFO - Event added with ID: 43
+2025-10-08 01:18:50,693 - database.database_manager - INFO - Event added with ID: 44
+2025-10-08 01:18:50,700 - database.database_manager - INFO - Event added with ID: 45
+2025-10-08 01:18:50,710 - database.database_manager - INFO - Event added with ID: 46
+2025-10-08 01:18:50,718 - database.database_manager - INFO - Event added with ID: 47
+2025-10-08 01:18:50,725 - database.database_manager - INFO - Event added with ID: 48
+2025-10-08 01:18:50,735 - database.database_manager - INFO - Event added with ID: 49
+2025-10-08 01:18:50,743 - database.database_manager - INFO - Event added with ID: 50
+2025-10-08 01:18:50,743 - database.database_manager - INFO - Event added with ID: 51
+2025-10-08 01:18:50,757 - database.database_manager - INFO - Event added with ID: 52
+2025-10-08 01:18:50,763 - database.database_manager - INFO - Event added with ID: 53
+2025-10-08 01:18:50,769 - database.database_manager - INFO - Event added with ID: 54
+2025-10-08 01:18:50,774 - database.database_manager - INFO - Event added with ID: 55
+2025-10-08 01:18:50,780 - database.database_manager - INFO - Event added with ID: 56
+2025-10-08 01:18:50,786 - database.database_manager - INFO - Event added with ID: 57
+2025-10-08 01:18:50,790 - database.database_manager - INFO - Event added with ID: 58
+2025-10-08 01:18:50,799 - database.database_manager - INFO - Event added with ID: 59
+2025-10-08 01:18:50,805 - database.database_manager - INFO - Event added with ID: 60
+2025-10-08 01:18:50,811 - database.database_manager - INFO - Event added with ID: 61
+2025-10-08 01:18:50,816 - database.database_manager - INFO - Event added with ID: 62
+2025-10-08 01:18:50,820 - database.database_manager - INFO - Event added with ID: 63
+2025-10-08 01:18:50,827 - database.database_manager - INFO - Event added with ID: 64
+2025-10-08 01:18:50,835 - database.database_manager - INFO - Event added with ID: 65
+2025-10-08 01:18:50,842 - database.database_manager - INFO - Event added with ID: 66
+2025-10-08 01:18:50,847 - database.database_manager - INFO - Event added with ID: 67
+2025-10-08 01:18:50,854 - database.database_manager - INFO - Event added with ID: 68
+2025-10-08 01:18:50,860 - database.database_manager - INFO - Event added with ID: 69
+2025-10-08 01:18:50,867 - database.database_manager - INFO - Event added with ID: 70
+2025-10-08 01:18:50,873 - database.database_manager - INFO - Event added with ID: 71
+2025-10-08 01:18:50,875 - database.database_manager - INFO - Event added with ID: 72
+2025-10-08 01:18:50,887 - database.database_manager - INFO - Event added with ID: 73
+2025-10-08 01:18:50,893 - database.database_manager - INFO - Event added with ID: 74
+2025-10-08 01:18:50,904 - database.database_manager - INFO - Event added with ID: 75
+2025-10-08 01:18:50,914 - database.database_manager - INFO - Event added with ID: 76
+2025-10-08 01:18:50,929 - database.database_manager - INFO - Event added with ID: 77
+2025-10-08 01:18:50,937 - database.database_manager - INFO - Event added with ID: 78
+2025-10-08 01:18:50,945 - database.database_manager - INFO - Event added with ID: 79
+2025-10-08 01:18:50,953 - database.database_manager - INFO - Event added with ID: 80
+2025-10-08 01:18:50,964 - database.database_manager - INFO - Event added with ID: 81
+2025-10-08 01:18:50,973 - database.database_manager - INFO - Event added with ID: 82
+2025-10-08 01:18:50,979 - database.database_manager - INFO - Event added with ID: 83
+2025-10-08 01:18:50,986 - database.database_manager - INFO - Event added with ID: 84
+2025-10-08 01:18:50,996 - database.database_manager - INFO - Event added with ID: 85
+2025-10-08 01:18:51,007 - database.database_manager - INFO - Event added with ID: 86
+2025-10-08 01:18:51,015 - database.database_manager - INFO - Event added with ID: 87
+2025-10-08 01:18:51,025 - database.database_manager - INFO - Event added with ID: 88
+2025-10-08 01:18:51,033 - database.database_manager - INFO - Event added with ID: 89
+2025-10-08 01:18:51,041 - database.database_manager - INFO - Event added with ID: 90
+2025-10-08 01:18:51,047 - database.database_manager - INFO - Event added with ID: 91
+2025-10-08 01:18:51,047 - database.database_manager - INFO - Event added with ID: 92
+2025-10-08 01:18:51,060 - database.database_manager - INFO - Event added with ID: 93
+2025-10-08 01:18:51,066 - database.database_manager - INFO - Event added with ID: 94
+2025-10-08 01:18:51,073 - database.database_manager - INFO - Event added with ID: 95
+2025-10-08 01:18:51,078 - database.database_manager - INFO - Event added with ID: 96
+2025-10-08 01:18:51,085 - database.database_manager - INFO - Event added with ID: 97
+2025-10-08 01:18:51,090 - database.database_manager - INFO - Event added with ID: 98
+2025-10-08 01:18:51,097 - database.database_manager - INFO - Event added with ID: 99
+2025-10-08 01:18:51,104 - database.database_manager - INFO - Event added with ID: 100
+2025-10-08 01:18:51,114 - database.database_manager - INFO - Event added with ID: 101
+2025-10-08 01:18:51,121 - database.database_manager - INFO - Event added with ID: 102
+2025-10-08 01:18:51,128 - database.database_manager - INFO - Event added with ID: 103
+2025-10-08 01:18:51,135 - database.database_manager - INFO - Event added with ID: 104
+2025-10-08 01:18:51,142 - database.database_manager - INFO - Event added with ID: 105
+2025-10-08 01:18:51,148 - database.database_manager - INFO - Event added with ID: 106
+2025-10-08 01:18:51,156 - database.database_manager - INFO - Event added with ID: 107
+2025-10-08 01:18:51,165 - database.database_manager - INFO - Event added with ID: 108
+2025-10-08 01:18:51,176 - database.database_manager - INFO - Event added with ID: 109
+2025-10-08 01:18:51,184 - database.database_manager - INFO - Event added with ID: 110
+2025-10-08 01:18:51,191 - database.database_manager - INFO - Event added with ID: 111
+2025-10-08 01:18:51,198 - database.database_manager - INFO - Event added with ID: 112
+2025-10-08 01:18:51,209 - database.database_manager - INFO - Event added with ID: 113
+2025-10-08 01:18:51,220 - database.database_manager - INFO - Event added with ID: 114
+2025-10-08 01:18:51,230 - database.database_manager - INFO - Event added with ID: 115
+2025-10-08 01:18:51,238 - database.database_manager - INFO - Event added with ID: 116
+2025-10-08 01:18:51,245 - database.database_manager - INFO - Event added with ID: 117
+2025-10-08 01:18:51,252 - database.database_manager - INFO - Event added with ID: 118
+2025-10-08 01:18:51,257 - database.database_manager - INFO - Event added with ID: 119
+2025-10-08 01:18:51,263 - database.database_manager - INFO - Event added with ID: 120
+2025-10-08 01:18:51,268 - database.database_manager - INFO - Event added with ID: 121
+2025-10-08 01:18:51,274 - database.database_manager - INFO - Event added with ID: 122
+2025-10-08 01:18:51,282 - database.database_manager - INFO - Event added with ID: 123
+2025-10-08 01:18:51,289 - database.database_manager - INFO - Event added with ID: 124
+2025-10-08 01:18:51,291 - database.database_manager - INFO - Event added with ID: 125
+2025-10-08 01:18:51,297 - database.database_manager - INFO - Event added with ID: 126
+2025-10-08 01:18:51,308 - database.database_manager - INFO - Event added with ID: 127
+2025-10-08 01:18:51,315 - database.database_manager - INFO - Event added with ID: 128
+2025-10-08 01:18:51,320 - database.database_manager - INFO - Event added with ID: 129
+2025-10-08 01:18:51,325 - database.database_manager - INFO - Event added with ID: 130
+2025-10-08 01:18:51,331 - database.database_manager - INFO - Event added with ID: 131
+2025-10-08 01:18:51,337 - database.database_manager - INFO - Event added with ID: 132
+2025-10-08 01:18:51,340 - database.database_manager - INFO - Event added with ID: 133
+2025-10-08 01:18:51,340 - database.database_manager - INFO - Event added with ID: 134
+2025-10-08 01:18:51,353 - database.database_manager - INFO - Event added with ID: 135
+2025-10-08 01:18:51,358 - database.database_manager - INFO - Event added with ID: 136
+2025-10-08 01:18:51,365 - database.database_manager - INFO - Event added with ID: 137
+2025-10-08 01:18:51,375 - database.database_manager - INFO - Event added with ID: 138
+2025-10-08 01:18:51,382 - database.database_manager - INFO - Event added with ID: 139
+2025-10-08 01:18:51,391 - database.database_manager - INFO - Event added with ID: 140
+2025-10-08 01:18:51,398 - database.database_manager - INFO - Event added with ID: 141
+2025-10-08 01:18:51,408 - database.database_manager - INFO - Event added with ID: 142
+2025-10-08 01:18:51,419 - database.database_manager - INFO - Event added with ID: 143
+2025-10-08 01:18:51,427 - database.database_manager - INFO - Event added with ID: 144
+2025-10-08 01:18:51,435 - database.database_manager - INFO - Event added with ID: 145
+2025-10-08 01:18:51,450 - database.database_manager - INFO - Event added with ID: 146
+2025-10-08 01:18:51,457 - database.database_manager - INFO - Event added with ID: 147
+2025-10-08 01:18:51,467 - database.database_manager - INFO - Event added with ID: 148
+2025-10-08 01:18:51,474 - database.database_manager - INFO - Event added with ID: 149
+2025-10-08 01:18:51,482 - database.database_manager - INFO - Event added with ID: 150
+2025-10-08 01:18:51,488 - database.database_manager - INFO - Event added with ID: 151
+2025-10-08 01:18:51,496 - database.database_manager - INFO - Event added with ID: 152
+2025-10-08 01:18:51,501 - database.database_manager - INFO - Event added with ID: 153
+2025-10-08 01:18:51,508 - database.database_manager - INFO - Event added with ID: 154
+2025-10-08 01:18:51,515 - database.database_manager - INFO - Event added with ID: 155
+2025-10-08 01:18:51,520 - database.database_manager - INFO - Event added with ID: 156
+2025-10-08 01:18:51,526 - database.database_manager - INFO - Event added with ID: 157
+2025-10-08 01:18:51,535 - database.database_manager - INFO - Event added with ID: 158
+2025-10-08 01:18:51,535 - services.data_loader - INFO - Loading 300 system metrics...
+2025-10-08 01:18:52,156 - services.data_loader - INFO - Loaded 100/300 metrics
+2025-10-08 01:18:53,041 - services.data_loader - INFO - Loaded 200/300 metrics
+2025-10-08 01:18:53,674 - services.data_loader - INFO - Loaded 300/300 metrics
+2025-10-08 01:18:53,675 - services.data_loader - INFO - Successfully loaded 300 system metrics
+2025-10-08 01:18:53,676 - services.data_loader - INFO - Realistic scenario created successfully
+2025-10-08 01:20:46,208 - database.database_manager - INFO - Database initialized successfully
+2025-10-08 01:20:46,210 - database.database_manager - INFO - Database initialized successfully
+2025-10-08 01:20:46,213 - services.data_loader - INFO - Cleared units table
+2025-10-08 01:20:46,213 - services.data_loader - INFO - Cleared alerts table
+2025-10-08 01:20:46,213 - services.data_loader - INFO - Cleared missions table
+2025-10-08 01:20:46,214 - services.data_loader - INFO - Cleared equipment table
+2025-10-08 01:20:46,214 - services.data_loader - INFO - Cleared events table
+2025-10-08 01:20:46,214 - services.data_loader - INFO - Cleared system_metrics table
+2025-10-08 01:20:46,220 - services.data_loader - INFO - All demo data cleared successfully
+2025-10-08 01:20:46,240 - services.data_loader - INFO - Creating realistic military scenario...
+2025-10-08 01:20:46,241 - services.data_loader - INFO - Cleared units table
+2025-10-08 01:20:46,242 - services.data_loader - INFO - Cleared alerts table
+2025-10-08 01:20:46,243 - services.data_loader - INFO - Cleared missions table
+2025-10-08 01:20:46,243 - services.data_loader - INFO - Cleared equipment table
+2025-10-08 01:20:46,244 - services.data_loader - INFO - Cleared events table
+2025-10-08 01:20:46,244 - services.data_loader - INFO - Cleared system_metrics table
+2025-10-08 01:20:46,249 - services.data_loader - INFO - All demo data cleared successfully
+2025-10-08 01:20:46,850 - services.data_loader - INFO - Loading 80 equipment items...
+2025-10-08 01:20:47,007 - services.data_loader - INFO - Loaded 20/80 equipment items
+2025-10-08 01:20:47,142 - services.data_loader - INFO - Loaded 40/80 equipment items
+2025-10-08 01:20:47,283 - services.data_loader - INFO - Loaded 60/80 equipment items
+2025-10-08 01:20:47,550 - services.data_loader - INFO - Loaded 80/80 equipment items
+2025-10-08 01:20:47,550 - services.data_loader - INFO - Successfully loaded 80 equipment items
+2025-10-08 01:20:47,555 - database.database_manager - INFO - Event added with ID: 161
+2025-10-08 01:20:47,565 - database.database_manager - INFO - Event added with ID: 162
+2025-10-08 01:20:47,571 - database.database_manager - INFO - Event added with ID: 163
+2025-10-08 01:20:47,578 - database.database_manager - INFO - Event added with ID: 164
+2025-10-08 01:20:47,585 - database.database_manager - INFO - Event added with ID: 165
+2025-10-08 01:20:47,591 - database.database_manager - INFO - Event added with ID: 166
+2025-10-08 01:20:47,597 - database.database_manager - INFO - Event added with ID: 167
+2025-10-08 01:20:47,604 - database.database_manager - INFO - Event added with ID: 168
+2025-10-08 01:20:47,611 - database.database_manager - INFO - Event added with ID: 169
+2025-10-08 01:20:47,617 - database.database_manager - INFO - Event added with ID: 170
+2025-10-08 01:20:47,624 - database.database_manager - INFO - Event added with ID: 171
+2025-10-08 01:20:47,631 - database.database_manager - INFO - Event added with ID: 172
+2025-10-08 01:20:47,638 - database.database_manager - INFO - Event added with ID: 173
+2025-10-08 01:20:47,647 - database.database_manager - INFO - Event added with ID: 174
+2025-10-08 01:20:47,653 - database.database_manager - INFO - Event added with ID: 175
+2025-10-08 01:20:47,661 - database.database_manager - INFO - Event added with ID: 176
+2025-10-08 01:20:47,670 - database.database_manager - INFO - Event added with ID: 177
+2025-10-08 01:20:47,678 - database.database_manager - INFO - Event added with ID: 178
+2025-10-08 01:20:47,687 - database.database_manager - INFO - Event added with ID: 179
+2025-10-08 01:20:47,694 - database.database_manager - INFO - Event added with ID: 180
+2025-10-08 01:20:47,702 - database.database_manager - INFO - Event added with ID: 181
+2025-10-08 01:20:47,710 - database.database_manager - INFO - Event added with ID: 182
+2025-10-08 01:20:47,721 - database.database_manager - INFO - Event added with ID: 183
+2025-10-08 01:20:47,730 - database.database_manager - INFO - Event added with ID: 184
+2025-10-08 01:20:47,738 - database.database_manager - INFO - Event added with ID: 185
+2025-10-08 01:20:47,746 - database.database_manager - INFO - Event added with ID: 186
+2025-10-08 01:20:47,754 - database.database_manager - INFO - Event added with ID: 187
+2025-10-08 01:20:47,763 - database.database_manager - INFO - Event added with ID: 188
+2025-10-08 01:20:47,771 - database.database_manager - INFO - Event added with ID: 189
+2025-10-08 01:20:47,778 - database.database_manager - INFO - Event added with ID: 190
+2025-10-08 01:20:47,785 - database.database_manager - INFO - Event added with ID: 191
+2025-10-08 01:20:47,792 - database.database_manager - INFO - Event added with ID: 192
+2025-10-08 01:20:47,800 - database.database_manager - INFO - Event added with ID: 193
+2025-10-08 01:20:47,808 - database.database_manager - INFO - Event added with ID: 194
+2025-10-08 01:20:47,815 - database.database_manager - INFO - Event added with ID: 195
+2025-10-08 01:20:47,820 - database.database_manager - INFO - Event added with ID: 196
+2025-10-08 01:20:47,830 - database.database_manager - INFO - Event added with ID: 197
+2025-10-08 01:20:47,838 - database.database_manager - INFO - Event added with ID: 198
+2025-10-08 01:20:47,844 - database.database_manager - INFO - Event added with ID: 199
+2025-10-08 01:20:47,853 - database.database_manager - INFO - Event added with ID: 200
+2025-10-08 01:20:47,861 - database.database_manager - INFO - Event added with ID: 201
+2025-10-08 01:20:47,867 - database.database_manager - INFO - Event added with ID: 202
+2025-10-08 01:20:47,874 - database.database_manager - INFO - Event added with ID: 203
+2025-10-08 01:20:47,881 - database.database_manager - INFO - Event added with ID: 204
+2025-10-08 01:20:47,890 - database.database_manager - INFO - Event added with ID: 205
+2025-10-08 01:20:47,896 - database.database_manager - INFO - Event added with ID: 206
+2025-10-08 01:20:47,903 - database.database_manager - INFO - Event added with ID: 207
+2025-10-08 01:20:47,911 - database.database_manager - INFO - Event added with ID: 208
+2025-10-08 01:20:47,917 - database.database_manager - INFO - Event added with ID: 209
+2025-10-08 01:20:47,923 - database.database_manager - INFO - Event added with ID: 210
+2025-10-08 01:20:47,930 - database.database_manager - INFO - Event added with ID: 211
+2025-10-08 01:20:47,937 - database.database_manager - INFO - Event added with ID: 212
+2025-10-08 01:20:47,946 - database.database_manager - INFO - Event added with ID: 213
+2025-10-08 01:20:47,954 - database.database_manager - INFO - Event added with ID: 214
+2025-10-08 01:20:47,960 - database.database_manager - INFO - Event added with ID: 215
+2025-10-08 01:20:47,971 - database.database_manager - INFO - Event added with ID: 216
+2025-10-08 01:20:47,980 - database.database_manager - INFO - Event added with ID: 217
+2025-10-08 01:20:47,987 - database.database_manager - INFO - Event added with ID: 218
+2025-10-08 01:20:47,996 - database.database_manager - INFO - Event added with ID: 219
+2025-10-08 01:20:48,004 - database.database_manager - INFO - Event added with ID: 220
+2025-10-08 01:20:48,013 - database.database_manager - INFO - Event added with ID: 221
+2025-10-08 01:20:48,021 - database.database_manager - INFO - Event added with ID: 222
+2025-10-08 01:20:48,029 - database.database_manager - INFO - Event added with ID: 223
+2025-10-08 01:20:48,034 - database.database_manager - INFO - Event added with ID: 224
+2025-10-08 01:20:48,044 - database.database_manager - INFO - Event added with ID: 225
+2025-10-08 01:20:48,050 - database.database_manager - INFO - Event added with ID: 226
+2025-10-08 01:20:48,056 - database.database_manager - INFO - Event added with ID: 227
+2025-10-08 01:20:48,065 - database.database_manager - INFO - Event added with ID: 228
+2025-10-08 01:20:48,072 - database.database_manager - INFO - Event added with ID: 229
+2025-10-08 01:20:48,080 - database.database_manager - INFO - Event added with ID: 230
+2025-10-08 01:20:48,087 - database.database_manager - INFO - Event added with ID: 231
+2025-10-08 01:20:48,094 - database.database_manager - INFO - Event added with ID: 232
+2025-10-08 01:20:48,100 - database.database_manager - INFO - Event added with ID: 233
+2025-10-08 01:20:48,105 - database.database_manager - INFO - Event added with ID: 234
+2025-10-08 01:20:48,111 - database.database_manager - INFO - Event added with ID: 235
+2025-10-08 01:20:48,117 - database.database_manager - INFO - Event added with ID: 236
+2025-10-08 01:20:48,124 - database.database_manager - INFO - Event added with ID: 237
+2025-10-08 01:20:48,131 - database.database_manager - INFO - Event added with ID: 238
+2025-10-08 01:20:48,137 - database.database_manager - INFO - Event added with ID: 239
+2025-10-08 01:20:48,144 - database.database_manager - INFO - Event added with ID: 240
+2025-10-08 01:20:48,150 - database.database_manager - INFO - Event added with ID: 241
+2025-10-08 01:20:48,157 - database.database_manager - INFO - Event added with ID: 242
+2025-10-08 01:20:48,162 - database.database_manager - INFO - Event added with ID: 243
+2025-10-08 01:20:48,168 - database.database_manager - INFO - Event added with ID: 244
+2025-10-08 01:20:48,175 - database.database_manager - INFO - Event added with ID: 245
+2025-10-08 01:20:48,182 - database.database_manager - INFO - Event added with ID: 246
+2025-10-08 01:20:48,188 - database.database_manager - INFO - Event added with ID: 247
+2025-10-08 01:20:48,194 - database.database_manager - INFO - Event added with ID: 248
+2025-10-08 01:20:48,200 - database.database_manager - INFO - Event added with ID: 249
+2025-10-08 01:20:48,206 - database.database_manager - INFO - Event added with ID: 250
+2025-10-08 01:20:48,212 - database.database_manager - INFO - Event added with ID: 251
+2025-10-08 01:20:48,217 - database.database_manager - INFO - Event added with ID: 252
+2025-10-08 01:20:48,224 - database.database_manager - INFO - Event added with ID: 253
+2025-10-08 01:20:48,229 - database.database_manager - INFO - Event added with ID: 254
+2025-10-08 01:20:48,236 - database.database_manager - INFO - Event added with ID: 255
+2025-10-08 01:20:48,242 - database.database_manager - INFO - Event added with ID: 256
+2025-10-08 01:20:48,247 - database.database_manager - INFO - Event added with ID: 257
+2025-10-08 01:20:48,252 - database.database_manager - INFO - Event added with ID: 258
+2025-10-08 01:20:48,258 - database.database_manager - INFO - Event added with ID: 259
+2025-10-08 01:20:48,264 - database.database_manager - INFO - Event added with ID: 260
+2025-10-08 01:20:48,271 - database.database_manager - INFO - Event added with ID: 261
+2025-10-08 01:20:48,280 - database.database_manager - INFO - Event added with ID: 262
+2025-10-08 01:20:48,289 - database.database_manager - INFO - Event added with ID: 263
+2025-10-08 01:20:48,296 - database.database_manager - INFO - Event added with ID: 264
+2025-10-08 01:20:48,303 - database.database_manager - INFO - Event added with ID: 265
+2025-10-08 01:20:48,312 - database.database_manager - INFO - Event added with ID: 266
+2025-10-08 01:20:48,320 - database.database_manager - INFO - Event added with ID: 267
+2025-10-08 01:20:48,327 - database.database_manager - INFO - Event added with ID: 268
+2025-10-08 01:20:48,335 - database.database_manager - INFO - Event added with ID: 269
+2025-10-08 01:20:48,342 - database.database_manager - INFO - Event added with ID: 270
+2025-10-08 01:20:48,350 - database.database_manager - INFO - Event added with ID: 271
+2025-10-08 01:20:48,357 - database.database_manager - INFO - Event added with ID: 272
+2025-10-08 01:20:48,365 - database.database_manager - INFO - Event added with ID: 273
+2025-10-08 01:20:48,372 - database.database_manager - INFO - Event added with ID: 274
+2025-10-08 01:20:48,380 - database.database_manager - INFO - Event added with ID: 275
+2025-10-08 01:20:48,386 - database.database_manager - INFO - Event added with ID: 276
+2025-10-08 01:20:48,394 - database.database_manager - INFO - Event added with ID: 277
+2025-10-08 01:20:48,402 - database.database_manager - INFO - Event added with ID: 278
+2025-10-08 01:20:48,409 - database.database_manager - INFO - Event added with ID: 279
+2025-10-08 01:20:48,416 - database.database_manager - INFO - Event added with ID: 280
+2025-10-08 01:20:48,423 - database.database_manager - INFO - Event added with ID: 281
+2025-10-08 01:20:48,430 - database.database_manager - INFO - Event added with ID: 282
+2025-10-08 01:20:48,437 - database.database_manager - INFO - Event added with ID: 283
+2025-10-08 01:20:48,444 - database.database_manager - INFO - Event added with ID: 284
+2025-10-08 01:20:48,451 - database.database_manager - INFO - Event added with ID: 285
+2025-10-08 01:20:48,458 - database.database_manager - INFO - Event added with ID: 286
+2025-10-08 01:20:48,464 - database.database_manager - INFO - Event added with ID: 287
+2025-10-08 01:20:48,470 - database.database_manager - INFO - Event added with ID: 288
+2025-10-08 01:20:48,473 - database.database_manager - INFO - Event added with ID: 289
+2025-10-08 01:20:48,482 - database.database_manager - INFO - Event added with ID: 290
+2025-10-08 01:20:48,488 - database.database_manager - INFO - Event added with ID: 291
+2025-10-08 01:20:48,495 - database.database_manager - INFO - Event added with ID: 292
+2025-10-08 01:20:48,501 - database.database_manager - INFO - Event added with ID: 293
+2025-10-08 01:20:48,507 - database.database_manager - INFO - Event added with ID: 294
+2025-10-08 01:20:48,514 - database.database_manager - INFO - Event added with ID: 295
+2025-10-08 01:20:48,521 - database.database_manager - INFO - Event added with ID: 296
+2025-10-08 01:20:48,528 - database.database_manager - INFO - Event added with ID: 297
+2025-10-08 01:20:48,534 - database.database_manager - INFO - Event added with ID: 298
+2025-10-08 01:20:48,540 - database.database_manager - INFO - Event added with ID: 299
+2025-10-08 01:20:48,546 - database.database_manager - INFO - Event added with ID: 300
+2025-10-08 01:20:48,555 - database.database_manager - INFO - Event added with ID: 301
+2025-10-08 01:20:48,560 - database.database_manager - INFO - Event added with ID: 302
+2025-10-08 01:20:48,566 - database.database_manager - INFO - Event added with ID: 303
+2025-10-08 01:20:48,573 - database.database_manager - INFO - Event added with ID: 304
+2025-10-08 01:20:48,579 - database.database_manager - INFO - Event added with ID: 305
+2025-10-08 01:20:48,584 - database.database_manager - INFO - Event added with ID: 306
+2025-10-08 01:20:48,590 - database.database_manager - INFO - Event added with ID: 307
+2025-10-08 01:20:48,595 - database.database_manager - INFO - Event added with ID: 308
+2025-10-08 01:20:48,602 - database.database_manager - INFO - Event added with ID: 309
+2025-10-08 01:20:48,609 - database.database_manager - INFO - Event added with ID: 310
+2025-10-08 01:20:48,610 - services.data_loader - INFO - Loading 300 system metrics...
+2025-10-08 01:20:51,348 - services.data_loader - INFO - Loaded 100/300 metrics
+2025-10-08 01:20:52,842 - services.data_loader - INFO - Loaded 200/300 metrics
+2025-10-08 01:20:53,574 - services.data_loader - INFO - Loaded 300/300 metrics
+2025-10-08 01:20:53,574 - services.data_loader - INFO - Successfully loaded 300 system metrics
+2025-10-08 01:20:53,574 - services.data_loader - INFO - Realistic scenario created successfully
+2025-10-08 17:21:24,661 - database.database_manager - INFO - Database initialized successfully
+2025-10-08 17:21:24,662 - database.database_manager - INFO - Database initialized successfully
+2025-10-08 17:21:24,663 - services.data_loader - INFO - Cleared units table
+2025-10-08 17:21:24,663 - services.data_loader - INFO - Cleared alerts table
+2025-10-08 17:21:24,664 - services.data_loader - INFO - Cleared missions table
+2025-10-08 17:21:24,664 - services.data_loader - INFO - Cleared equipment table
+2025-10-08 17:21:24,664 - services.data_loader - INFO - Cleared events table
+2025-10-08 17:21:24,665 - services.data_loader - INFO - Cleared system_metrics table
+2025-10-08 17:21:24,670 - services.data_loader - INFO - All demo data cleared successfully
+2025-10-08 17:21:24,688 - services.data_loader - INFO - Creating realistic military scenario...
+2025-10-08 17:21:24,690 - services.data_loader - INFO - Cleared units table
+2025-10-08 17:21:24,690 - services.data_loader - INFO - Cleared alerts table
+2025-10-08 17:21:24,690 - services.data_loader - INFO - Cleared missions table
+2025-10-08 17:21:24,690 - services.data_loader - INFO - Cleared equipment table
+2025-10-08 17:21:24,691 - services.data_loader - INFO - Cleared events table
+2025-10-08 17:21:24,691 - services.data_loader - INFO - Cleared system_metrics table
+2025-10-08 17:21:24,695 - services.data_loader - INFO - All demo data cleared successfully
+2025-10-08 17:21:25,140 - services.data_loader - INFO - Loading 80 equipment items...
+2025-10-08 17:21:25,234 - services.data_loader - INFO - Loaded 20/80 equipment items
+2025-10-08 17:21:25,339 - services.data_loader - INFO - Loaded 40/80 equipment items
+2025-10-08 17:21:25,440 - services.data_loader - INFO - Loaded 60/80 equipment items
+2025-10-08 17:21:25,520 - services.data_loader - INFO - Loaded 80/80 equipment items
+2025-10-08 17:21:25,520 - services.data_loader - INFO - Successfully loaded 80 equipment items
+2025-10-08 17:21:25,536 - database.database_manager - INFO - Event added with ID: 316
+2025-10-08 17:21:25,545 - database.database_manager - INFO - Event added with ID: 317
+2025-10-08 17:21:25,551 - database.database_manager - INFO - Event added with ID: 318
+2025-10-08 17:21:25,556 - database.database_manager - INFO - Event added with ID: 319
+2025-10-08 17:21:25,562 - database.database_manager - INFO - Event added with ID: 320
+2025-10-08 17:21:25,567 - database.database_manager - INFO - Event added with ID: 321
+2025-10-08 17:21:25,572 - database.database_manager - INFO - Event added with ID: 322
+2025-10-08 17:21:25,578 - database.database_manager - INFO - Event added with ID: 323
+2025-10-08 17:21:25,583 - database.database_manager - INFO - Event added with ID: 324
+2025-10-08 17:21:25,589 - database.database_manager - INFO - Event added with ID: 325
+2025-10-08 17:21:25,594 - database.database_manager - INFO - Event added with ID: 326
+2025-10-08 17:21:25,598 - database.database_manager - INFO - Event added with ID: 327
+2025-10-08 17:21:25,604 - database.database_manager - INFO - Event added with ID: 328
+2025-10-08 17:21:25,609 - database.database_manager - INFO - Event added with ID: 329
+2025-10-08 17:21:25,614 - database.database_manager - INFO - Event added with ID: 330
+2025-10-08 17:21:25,621 - database.database_manager - INFO - Event added with ID: 331
+2025-10-08 17:21:25,625 - database.database_manager - INFO - Event added with ID: 332
+2025-10-08 17:21:25,632 - database.database_manager - INFO - Event added with ID: 333
+2025-10-08 17:21:25,637 - database.database_manager - INFO - Event added with ID: 334
+2025-10-08 17:21:25,642 - database.database_manager - INFO - Event added with ID: 335
+2025-10-08 17:21:25,647 - database.database_manager - INFO - Event added with ID: 336
+2025-10-08 17:21:25,652 - database.database_manager - INFO - Event added with ID: 337
+2025-10-08 17:21:25,656 - database.database_manager - INFO - Event added with ID: 338
+2025-10-08 17:21:25,662 - database.database_manager - INFO - Event added with ID: 339
+2025-10-08 17:21:25,667 - database.database_manager - INFO - Event added with ID: 340
+2025-10-08 17:21:25,672 - database.database_manager - INFO - Event added with ID: 341
+2025-10-08 17:21:25,678 - database.database_manager - INFO - Event added with ID: 342
+2025-10-08 17:21:25,683 - database.database_manager - INFO - Event added with ID: 343
+2025-10-08 17:21:25,691 - database.database_manager - INFO - Event added with ID: 344
+2025-10-08 17:21:25,700 - database.database_manager - INFO - Event added with ID: 345
+2025-10-08 17:21:25,706 - database.database_manager - INFO - Event added with ID: 346
+2025-10-08 17:21:25,711 - database.database_manager - INFO - Event added with ID: 347
+2025-10-08 17:21:25,716 - database.database_manager - INFO - Event added with ID: 348
+2025-10-08 17:21:25,721 - database.database_manager - INFO - Event added with ID: 349
+2025-10-08 17:21:25,725 - database.database_manager - INFO - Event added with ID: 350
+2025-10-08 17:21:25,733 - database.database_manager - INFO - Event added with ID: 351
+2025-10-08 17:21:25,737 - database.database_manager - INFO - Event added with ID: 352
+2025-10-08 17:21:25,743 - database.database_manager - INFO - Event added with ID: 353
+2025-10-08 17:21:25,748 - database.database_manager - INFO - Event added with ID: 354
+2025-10-08 17:21:25,754 - database.database_manager - INFO - Event added with ID: 355
+2025-10-08 17:21:25,764 - database.database_manager - INFO - Event added with ID: 356
+2025-10-08 17:21:25,770 - database.database_manager - INFO - Event added with ID: 357
+2025-10-08 17:21:25,777 - database.database_manager - INFO - Event added with ID: 358
+2025-10-08 17:21:25,786 - database.database_manager - INFO - Event added with ID: 359
+2025-10-08 17:21:25,793 - database.database_manager - INFO - Event added with ID: 360
+2025-10-08 17:21:25,798 - database.database_manager - INFO - Event added with ID: 361
+2025-10-08 17:21:25,803 - database.database_manager - INFO - Event added with ID: 362
+2025-10-08 17:21:25,809 - database.database_manager - INFO - Event added with ID: 363
+2025-10-08 17:21:25,814 - database.database_manager - INFO - Event added with ID: 364
+2025-10-08 17:21:25,820 - database.database_manager - INFO - Event added with ID: 365
+2025-10-08 17:21:25,825 - database.database_manager - INFO - Event added with ID: 366
+2025-10-08 17:21:25,829 - database.database_manager - INFO - Event added with ID: 367
+2025-10-08 17:21:25,835 - database.database_manager - INFO - Event added with ID: 368
+2025-10-08 17:21:25,840 - database.database_manager - INFO - Event added with ID: 369
+2025-10-08 17:21:25,845 - database.database_manager - INFO - Event added with ID: 370
+2025-10-08 17:21:25,850 - database.database_manager - INFO - Event added with ID: 371
+2025-10-08 17:21:25,856 - database.database_manager - INFO - Event added with ID: 372
+2025-10-08 17:21:25,861 - database.database_manager - INFO - Event added with ID: 373
+2025-10-08 17:21:25,867 - database.database_manager - INFO - Event added with ID: 374
+2025-10-08 17:21:25,874 - database.database_manager - INFO - Event added with ID: 375
+2025-10-08 17:21:25,879 - database.database_manager - INFO - Event added with ID: 376
+2025-10-08 17:21:25,885 - database.database_manager - INFO - Event added with ID: 377
+2025-10-08 17:21:25,892 - database.database_manager - INFO - Event added with ID: 378
+2025-10-08 17:21:25,898 - database.database_manager - INFO - Event added with ID: 379
+2025-10-08 17:21:25,903 - database.database_manager - INFO - Event added with ID: 380
+2025-10-08 17:21:25,908 - database.database_manager - INFO - Event added with ID: 381
+2025-10-08 17:21:25,912 - database.database_manager - INFO - Event added with ID: 382
+2025-10-08 17:21:25,919 - database.database_manager - INFO - Event added with ID: 383
+2025-10-08 17:21:25,923 - database.database_manager - INFO - Event added with ID: 384
+2025-10-08 17:21:25,929 - database.database_manager - INFO - Event added with ID: 385
+2025-10-08 17:21:25,934 - database.database_manager - INFO - Event added with ID: 386
+2025-10-08 17:21:25,940 - database.database_manager - INFO - Event added with ID: 387
+2025-10-08 17:21:25,945 - database.database_manager - INFO - Event added with ID: 388
+2025-10-08 17:21:25,951 - database.database_manager - INFO - Event added with ID: 389
+2025-10-08 17:21:25,957 - database.database_manager - INFO - Event added with ID: 390
+2025-10-08 17:21:25,961 - database.database_manager - INFO - Event added with ID: 391
+2025-10-08 17:21:25,966 - database.database_manager - INFO - Event added with ID: 392
+2025-10-08 17:21:25,973 - database.database_manager - INFO - Event added with ID: 393
+2025-10-08 17:21:25,978 - database.database_manager - INFO - Event added with ID: 394
+2025-10-08 17:21:25,984 - database.database_manager - INFO - Event added with ID: 395
+2025-10-08 17:21:25,990 - database.database_manager - INFO - Event added with ID: 396
+2025-10-08 17:21:25,995 - database.database_manager - INFO - Event added with ID: 397
+2025-10-08 17:21:25,999 - database.database_manager - INFO - Event added with ID: 398
+2025-10-08 17:21:26,005 - database.database_manager - INFO - Event added with ID: 399
+2025-10-08 17:21:26,009 - database.database_manager - INFO - Event added with ID: 400
+2025-10-08 17:21:26,015 - database.database_manager - INFO - Event added with ID: 401
+2025-10-08 17:21:26,019 - database.database_manager - INFO - Event added with ID: 402
+2025-10-08 17:21:26,026 - database.database_manager - INFO - Event added with ID: 403
+2025-10-08 17:21:26,031 - database.database_manager - INFO - Event added with ID: 404
+2025-10-08 17:21:26,036 - database.database_manager - INFO - Event added with ID: 405
+2025-10-08 17:21:26,043 - database.database_manager - INFO - Event added with ID: 406
+2025-10-08 17:21:26,048 - database.database_manager - INFO - Event added with ID: 407
+2025-10-08 17:21:26,053 - database.database_manager - INFO - Event added with ID: 408
+2025-10-08 17:21:26,059 - database.database_manager - INFO - Event added with ID: 409
+2025-10-08 17:21:26,064 - database.database_manager - INFO - Event added with ID: 410
+2025-10-08 17:21:26,069 - database.database_manager - INFO - Event added with ID: 411
+2025-10-08 17:21:26,074 - database.database_manager - INFO - Event added with ID: 412
+2025-10-08 17:21:26,079 - database.database_manager - INFO - Event added with ID: 413
+2025-10-08 17:21:26,084 - database.database_manager - INFO - Event added with ID: 414
+2025-10-08 17:21:26,089 - database.database_manager - INFO - Event added with ID: 415
+2025-10-08 17:21:26,094 - database.database_manager - INFO - Event added with ID: 416
+2025-10-08 17:21:26,099 - database.database_manager - INFO - Event added with ID: 417
+2025-10-08 17:21:26,106 - database.database_manager - INFO - Event added with ID: 418
+2025-10-08 17:21:26,111 - database.database_manager - INFO - Event added with ID: 419
+2025-10-08 17:21:26,116 - database.database_manager - INFO - Event added with ID: 420
+2025-10-08 17:21:26,122 - database.database_manager - INFO - Event added with ID: 421
+2025-10-08 17:21:26,128 - database.database_manager - INFO - Event added with ID: 422
+2025-10-08 17:21:26,134 - database.database_manager - INFO - Event added with ID: 423
+2025-10-08 17:21:26,139 - database.database_manager - INFO - Event added with ID: 424
+2025-10-08 17:21:26,144 - database.database_manager - INFO - Event added with ID: 425
+2025-10-08 17:21:26,149 - database.database_manager - INFO - Event added with ID: 426
+2025-10-08 17:21:26,155 - database.database_manager - INFO - Event added with ID: 427
+2025-10-08 17:21:26,161 - database.database_manager - INFO - Event added with ID: 428
+2025-10-08 17:21:26,166 - database.database_manager - INFO - Event added with ID: 429
+2025-10-08 17:21:26,171 - database.database_manager - INFO - Event added with ID: 430
+2025-10-08 17:21:26,178 - database.database_manager - INFO - Event added with ID: 431
+2025-10-08 17:21:26,185 - database.database_manager - INFO - Event added with ID: 432
+2025-10-08 17:21:26,189 - database.database_manager - INFO - Event added with ID: 433
+2025-10-08 17:21:26,195 - database.database_manager - INFO - Event added with ID: 434
+2025-10-08 17:21:26,201 - database.database_manager - INFO - Event added with ID: 435
+2025-10-08 17:21:26,208 - database.database_manager - INFO - Event added with ID: 436
+2025-10-08 17:21:26,213 - database.database_manager - INFO - Event added with ID: 437
+2025-10-08 17:21:26,218 - database.database_manager - INFO - Event added with ID: 438
+2025-10-08 17:21:26,224 - database.database_manager - INFO - Event added with ID: 439
+2025-10-08 17:21:26,229 - database.database_manager - INFO - Event added with ID: 440
+2025-10-08 17:21:26,234 - database.database_manager - INFO - Event added with ID: 441
+2025-10-08 17:21:26,240 - database.database_manager - INFO - Event added with ID: 442
+2025-10-08 17:21:26,245 - database.database_manager - INFO - Event added with ID: 443
+2025-10-08 17:21:26,250 - database.database_manager - INFO - Event added with ID: 444
+2025-10-08 17:21:26,255 - database.database_manager - INFO - Event added with ID: 445
+2025-10-08 17:21:26,261 - database.database_manager - INFO - Event added with ID: 446
+2025-10-08 17:21:26,266 - database.database_manager - INFO - Event added with ID: 447
+2025-10-08 17:21:26,271 - database.database_manager - INFO - Event added with ID: 448
+2025-10-08 17:21:26,277 - database.database_manager - INFO - Event added with ID: 449
+2025-10-08 17:21:26,284 - database.database_manager - INFO - Event added with ID: 450
+2025-10-08 17:21:26,290 - database.database_manager - INFO - Event added with ID: 451
+2025-10-08 17:21:26,295 - database.database_manager - INFO - Event added with ID: 452
+2025-10-08 17:21:26,300 - database.database_manager - INFO - Event added with ID: 453
+2025-10-08 17:21:26,307 - database.database_manager - INFO - Event added with ID: 454
+2025-10-08 17:21:26,312 - database.database_manager - INFO - Event added with ID: 455
+2025-10-08 17:21:26,319 - database.database_manager - INFO - Event added with ID: 456
+2025-10-08 17:21:26,323 - database.database_manager - INFO - Event added with ID: 457
+2025-10-08 17:21:26,329 - database.database_manager - INFO - Event added with ID: 458
+2025-10-08 17:21:26,334 - database.database_manager - INFO - Event added with ID: 459
+2025-10-08 17:21:26,339 - database.database_manager - INFO - Event added with ID: 460
+2025-10-08 17:21:26,346 - database.database_manager - INFO - Event added with ID: 461
+2025-10-08 17:21:26,350 - database.database_manager - INFO - Event added with ID: 462
+2025-10-08 17:21:26,356 - database.database_manager - INFO - Event added with ID: 463
+2025-10-08 17:21:26,361 - database.database_manager - INFO - Event added with ID: 464
+2025-10-08 17:21:26,366 - database.database_manager - INFO - Event added with ID: 465
+2025-10-08 17:21:26,366 - services.data_loader - INFO - Loading 300 system metrics...
+2025-10-08 17:21:26,836 - services.data_loader - INFO - Loaded 100/300 metrics
+2025-10-08 17:21:27,468 - services.data_loader - INFO - Loaded 200/300 metrics
+2025-10-08 17:21:27,941 - services.data_loader - INFO - Loaded 300/300 metrics
+2025-10-08 17:21:27,941 - services.data_loader - INFO - Successfully loaded 300 system metrics
+2025-10-08 17:21:27,942 - services.data_loader - INFO - Realistic scenario created successfully
+2025-10-08 22:20:20,018 - database.database_manager - INFO - Database initialized successfully
+2025-10-08 22:20:20,021 - database.database_manager - INFO - Database initialized successfully
+2025-10-08 22:20:20,025 - services.data_loader - INFO - Cleared units table
+2025-10-08 22:20:20,025 - services.data_loader - INFO - Cleared alerts table
+2025-10-08 22:20:20,026 - services.data_loader - INFO - Cleared missions table
+2025-10-08 22:20:20,027 - services.data_loader - INFO - Cleared equipment table
+2025-10-08 22:20:20,029 - services.data_loader - INFO - Cleared events table
+2025-10-08 22:20:20,030 - services.data_loader - INFO - Cleared system_metrics table
+2025-10-08 22:20:20,038 - services.data_loader - INFO - All demo data cleared successfully
+2025-10-08 22:20:20,067 - services.data_loader - INFO - Creating realistic military scenario...
+2025-10-08 22:20:20,069 - services.data_loader - INFO - Cleared units table
+2025-10-08 22:20:20,069 - services.data_loader - INFO - Cleared alerts table
+2025-10-08 22:20:20,070 - services.data_loader - INFO - Cleared missions table
+2025-10-08 22:20:20,070 - services.data_loader - INFO - Cleared equipment table
+2025-10-08 22:20:20,070 - services.data_loader - INFO - Cleared events table
+2025-10-08 22:20:20,070 - services.data_loader - INFO - Cleared system_metrics table
+2025-10-08 22:20:20,078 - services.data_loader - INFO - All demo data cleared successfully
+2025-10-08 22:20:20,761 - services.data_loader - INFO - Loading 80 equipment items...
+2025-10-08 22:20:20,861 - services.data_loader - INFO - Loaded 20/80 equipment items
+2025-10-08 22:20:20,992 - services.data_loader - INFO - Loaded 40/80 equipment items
+2025-10-08 22:20:21,120 - services.data_loader - INFO - Loaded 60/80 equipment items
+2025-10-08 22:20:21,232 - services.data_loader - INFO - Loaded 80/80 equipment items
+2025-10-08 22:20:21,232 - services.data_loader - INFO - Successfully loaded 80 equipment items
+2025-10-08 22:20:21,241 - database.database_manager - INFO - Event added with ID: 468
+2025-10-08 22:20:21,250 - database.database_manager - INFO - Event added with ID: 469
+2025-10-08 22:20:21,257 - database.database_manager - INFO - Event added with ID: 470
+2025-10-08 22:20:21,264 - database.database_manager - INFO - Event added with ID: 471
+2025-10-08 22:20:21,270 - database.database_manager - INFO - Event added with ID: 472
+2025-10-08 22:20:21,277 - database.database_manager - INFO - Event added with ID: 473
+2025-10-08 22:20:21,283 - database.database_manager - INFO - Event added with ID: 474
+2025-10-08 22:20:21,292 - database.database_manager - INFO - Event added with ID: 475
+2025-10-08 22:20:21,299 - database.database_manager - INFO - Event added with ID: 476
+2025-10-08 22:20:21,307 - database.database_manager - INFO - Event added with ID: 477
+2025-10-08 22:20:21,315 - database.database_manager - INFO - Event added with ID: 478
+2025-10-08 22:20:21,324 - database.database_manager - INFO - Event added with ID: 479
+2025-10-08 22:20:21,334 - database.database_manager - INFO - Event added with ID: 480
+2025-10-08 22:20:21,341 - database.database_manager - INFO - Event added with ID: 481
+2025-10-08 22:20:21,346 - database.database_manager - INFO - Event added with ID: 482
+2025-10-08 22:20:21,355 - database.database_manager - INFO - Event added with ID: 483
+2025-10-08 22:20:21,363 - database.database_manager - INFO - Event added with ID: 484
+2025-10-08 22:20:21,369 - database.database_manager - INFO - Event added with ID: 485
+2025-10-08 22:20:21,375 - database.database_manager - INFO - Event added with ID: 486
+2025-10-08 22:20:21,381 - database.database_manager - INFO - Event added with ID: 487
+2025-10-08 22:20:21,387 - database.database_manager - INFO - Event added with ID: 488
+2025-10-08 22:20:21,391 - database.database_manager - INFO - Event added with ID: 489
+2025-10-08 22:20:21,397 - database.database_manager - INFO - Event added with ID: 490
+2025-10-08 22:20:21,404 - database.database_manager - INFO - Event added with ID: 491
+2025-10-08 22:20:21,410 - database.database_manager - INFO - Event added with ID: 492
+2025-10-08 22:20:21,416 - database.database_manager - INFO - Event added with ID: 493
+2025-10-08 22:20:21,422 - database.database_manager - INFO - Event added with ID: 494
+2025-10-08 22:20:21,431 - database.database_manager - INFO - Event added with ID: 495
+2025-10-08 22:20:21,438 - database.database_manager - INFO - Event added with ID: 496
+2025-10-08 22:20:21,445 - database.database_manager - INFO - Event added with ID: 497
+2025-10-08 22:20:21,452 - database.database_manager - INFO - Event added with ID: 498
+2025-10-08 22:20:21,458 - database.database_manager - INFO - Event added with ID: 499
+2025-10-08 22:20:21,468 - database.database_manager - INFO - Event added with ID: 500
+2025-10-08 22:20:21,475 - database.database_manager - INFO - Event added with ID: 501
+2025-10-08 22:20:21,479 - database.database_manager - INFO - Event added with ID: 502
+2025-10-08 22:20:21,485 - database.database_manager - INFO - Event added with ID: 503
+2025-10-08 22:20:21,491 - database.database_manager - INFO - Event added with ID: 504
+2025-10-08 22:20:21,497 - database.database_manager - INFO - Event added with ID: 505
+2025-10-08 22:20:21,503 - database.database_manager - INFO - Event added with ID: 506
+2025-10-08 22:20:21,509 - database.database_manager - INFO - Event added with ID: 507
+2025-10-08 22:20:21,517 - database.database_manager - INFO - Event added with ID: 508
+2025-10-08 22:20:21,522 - database.database_manager - INFO - Event added with ID: 509
+2025-10-08 22:20:21,530 - database.database_manager - INFO - Event added with ID: 510
+2025-10-08 22:20:21,536 - database.database_manager - INFO - Event added with ID: 511
+2025-10-08 22:20:21,544 - database.database_manager - INFO - Event added with ID: 512
+2025-10-08 22:20:21,550 - database.database_manager - INFO - Event added with ID: 513
+2025-10-08 22:20:21,556 - database.database_manager - INFO - Event added with ID: 514
+2025-10-08 22:20:21,563 - database.database_manager - INFO - Event added with ID: 515
+2025-10-08 22:20:21,568 - database.database_manager - INFO - Event added with ID: 516
+2025-10-08 22:20:21,574 - database.database_manager - INFO - Event added with ID: 517
+2025-10-08 22:20:21,581 - database.database_manager - INFO - Event added with ID: 518
+2025-10-08 22:20:21,586 - database.database_manager - INFO - Event added with ID: 519
+2025-10-08 22:20:21,591 - database.database_manager - INFO - Event added with ID: 520
+2025-10-08 22:20:21,601 - database.database_manager - INFO - Event added with ID: 521
+2025-10-08 22:20:21,606 - database.database_manager - INFO - Event added with ID: 522
+2025-10-08 22:20:21,613 - database.database_manager - INFO - Event added with ID: 523
+2025-10-08 22:20:21,620 - database.database_manager - INFO - Event added with ID: 524
+2025-10-08 22:20:21,626 - database.database_manager - INFO - Event added with ID: 525
+2025-10-08 22:20:21,632 - database.database_manager - INFO - Event added with ID: 526
+2025-10-08 22:20:21,639 - database.database_manager - INFO - Event added with ID: 527
+2025-10-08 22:20:21,646 - database.database_manager - INFO - Event added with ID: 528
+2025-10-08 22:20:21,653 - database.database_manager - INFO - Event added with ID: 529
+2025-10-08 22:20:21,659 - database.database_manager - INFO - Event added with ID: 530
+2025-10-08 22:20:21,664 - database.database_manager - INFO - Event added with ID: 531
+2025-10-08 22:20:21,670 - database.database_manager - INFO - Event added with ID: 532
+2025-10-08 22:20:21,676 - database.database_manager - INFO - Event added with ID: 533
+2025-10-08 22:20:21,684 - database.database_manager - INFO - Event added with ID: 534
+2025-10-08 22:20:21,690 - database.database_manager - INFO - Event added with ID: 535
+2025-10-08 22:20:21,695 - database.database_manager - INFO - Event added with ID: 536
+2025-10-08 22:20:21,700 - database.database_manager - INFO - Event added with ID: 537
+2025-10-08 22:20:21,707 - database.database_manager - INFO - Event added with ID: 538
+2025-10-08 22:20:21,712 - database.database_manager - INFO - Event added with ID: 539
+2025-10-08 22:20:21,717 - database.database_manager - INFO - Event added with ID: 540
+2025-10-08 22:20:21,722 - database.database_manager - INFO - Event added with ID: 541
+2025-10-08 22:20:21,728 - database.database_manager - INFO - Event added with ID: 542
+2025-10-08 22:20:21,735 - database.database_manager - INFO - Event added with ID: 543
+2025-10-08 22:20:21,742 - database.database_manager - INFO - Event added with ID: 544
+2025-10-08 22:20:21,749 - database.database_manager - INFO - Event added with ID: 545
+2025-10-08 22:20:21,757 - database.database_manager - INFO - Event added with ID: 546
+2025-10-08 22:20:21,767 - database.database_manager - INFO - Event added with ID: 547
+2025-10-08 22:20:21,776 - database.database_manager - INFO - Event added with ID: 548
+2025-10-08 22:20:21,784 - database.database_manager - INFO - Event added with ID: 549
+2025-10-08 22:20:21,791 - database.database_manager - INFO - Event added with ID: 550
+2025-10-08 22:20:21,798 - database.database_manager - INFO - Event added with ID: 551
+2025-10-08 22:20:21,802 - database.database_manager - INFO - Event added with ID: 552
+2025-10-08 22:20:21,808 - database.database_manager - INFO - Event added with ID: 553
+2025-10-08 22:20:21,813 - database.database_manager - INFO - Event added with ID: 554
+2025-10-08 22:20:21,821 - database.database_manager - INFO - Event added with ID: 555
+2025-10-08 22:20:21,829 - database.database_manager - INFO - Event added with ID: 556
+2025-10-08 22:20:21,837 - database.database_manager - INFO - Event added with ID: 557
+2025-10-08 22:20:21,844 - database.database_manager - INFO - Event added with ID: 558
+2025-10-08 22:20:21,851 - database.database_manager - INFO - Event added with ID: 559
+2025-10-08 22:20:21,855 - database.database_manager - INFO - Event added with ID: 560
+2025-10-08 22:20:21,864 - database.database_manager - INFO - Event added with ID: 561
+2025-10-08 22:20:21,870 - database.database_manager - INFO - Event added with ID: 562
+2025-10-08 22:20:21,875 - database.database_manager - INFO - Event added with ID: 563
+2025-10-08 22:20:21,883 - database.database_manager - INFO - Event added with ID: 564
+2025-10-08 22:20:21,890 - database.database_manager - INFO - Event added with ID: 565
+2025-10-08 22:20:21,896 - database.database_manager - INFO - Event added with ID: 566
+2025-10-08 22:20:21,902 - database.database_manager - INFO - Event added with ID: 567
+2025-10-08 22:20:21,909 - database.database_manager - INFO - Event added with ID: 568
+2025-10-08 22:20:21,915 - database.database_manager - INFO - Event added with ID: 569
+2025-10-08 22:20:21,923 - database.database_manager - INFO - Event added with ID: 570
+2025-10-08 22:20:21,930 - database.database_manager - INFO - Event added with ID: 571
+2025-10-08 22:20:21,938 - database.database_manager - INFO - Event added with ID: 572
+2025-10-08 22:20:21,945 - database.database_manager - INFO - Event added with ID: 573
+2025-10-08 22:20:21,952 - database.database_manager - INFO - Event added with ID: 574
+2025-10-08 22:20:21,957 - database.database_manager - INFO - Event added with ID: 575
+2025-10-08 22:20:21,963 - database.database_manager - INFO - Event added with ID: 576
+2025-10-08 22:20:21,968 - database.database_manager - INFO - Event added with ID: 577
+2025-10-08 22:20:21,974 - database.database_manager - INFO - Event added with ID: 578
+2025-10-08 22:20:21,981 - database.database_manager - INFO - Event added with ID: 579
+2025-10-08 22:20:21,987 - database.database_manager - INFO - Event added with ID: 580
+2025-10-08 22:20:21,994 - database.database_manager - INFO - Event added with ID: 581
+2025-10-08 22:20:22,000 - database.database_manager - INFO - Event added with ID: 582
+2025-10-08 22:20:22,008 - database.database_manager - INFO - Event added with ID: 583
+2025-10-08 22:20:22,013 - database.database_manager - INFO - Event added with ID: 584
+2025-10-08 22:20:22,020 - database.database_manager - INFO - Event added with ID: 585
+2025-10-08 22:20:22,028 - database.database_manager - INFO - Event added with ID: 586
+2025-10-08 22:20:22,034 - database.database_manager - INFO - Event added with ID: 587
+2025-10-08 22:20:22,042 - database.database_manager - INFO - Event added with ID: 588
+2025-10-08 22:20:22,049 - database.database_manager - INFO - Event added with ID: 589
+2025-10-08 22:20:22,057 - database.database_manager - INFO - Event added with ID: 590
+2025-10-08 22:20:22,062 - database.database_manager - INFO - Event added with ID: 591
+2025-10-08 22:20:22,069 - database.database_manager - INFO - Event added with ID: 592
+2025-10-08 22:20:22,069 - database.database_manager - INFO - Event added with ID: 593
+2025-10-08 22:20:22,081 - database.database_manager - INFO - Event added with ID: 594
+2025-10-08 22:20:22,086 - database.database_manager - INFO - Event added with ID: 595
+2025-10-08 22:20:22,092 - database.database_manager - INFO - Event added with ID: 596
+2025-10-08 22:20:22,098 - database.database_manager - INFO - Event added with ID: 597
+2025-10-08 22:20:22,103 - database.database_manager - INFO - Event added with ID: 598
+2025-10-08 22:20:22,110 - database.database_manager - INFO - Event added with ID: 599
+2025-10-08 22:20:22,118 - database.database_manager - INFO - Event added with ID: 600
+2025-10-08 22:20:22,123 - database.database_manager - INFO - Event added with ID: 601
+2025-10-08 22:20:22,127 - database.database_manager - INFO - Event added with ID: 602
+2025-10-08 22:20:22,134 - database.database_manager - INFO - Event added with ID: 603
+2025-10-08 22:20:22,139 - database.database_manager - INFO - Event added with ID: 604
+2025-10-08 22:20:22,145 - database.database_manager - INFO - Event added with ID: 605
+2025-10-08 22:20:22,151 - database.database_manager - INFO - Event added with ID: 606
+2025-10-08 22:20:22,157 - database.database_manager - INFO - Event added with ID: 607
+2025-10-08 22:20:22,163 - database.database_manager - INFO - Event added with ID: 608
+2025-10-08 22:20:22,170 - database.database_manager - INFO - Event added with ID: 609
+2025-10-08 22:20:22,176 - database.database_manager - INFO - Event added with ID: 610
+2025-10-08 22:20:22,184 - database.database_manager - INFO - Event added with ID: 611
+2025-10-08 22:20:22,191 - database.database_manager - INFO - Event added with ID: 612
+2025-10-08 22:20:22,198 - database.database_manager - INFO - Event added with ID: 613
+2025-10-08 22:20:22,203 - database.database_manager - INFO - Event added with ID: 614
+2025-10-08 22:20:22,209 - database.database_manager - INFO - Event added with ID: 615
+2025-10-08 22:20:22,215 - database.database_manager - INFO - Event added with ID: 616
+2025-10-08 22:20:22,222 - database.database_manager - INFO - Event added with ID: 617
+2025-10-08 22:20:22,222 - services.data_loader - INFO - Loading 300 system metrics...
+2025-10-08 22:20:22,830 - services.data_loader - INFO - Loaded 100/300 metrics
+2025-10-08 22:20:23,361 - services.data_loader - INFO - Loaded 200/300 metrics
+2025-10-08 22:20:23,878 - services.data_loader - INFO - Loaded 300/300 metrics
+2025-10-08 22:20:23,878 - services.data_loader - INFO - Successfully loaded 300 system metrics
+2025-10-08 22:20:23,878 - services.data_loader - INFO - Realistic scenario created successfully
+2025-10-12 13:28:41,524 - database.database_manager - INFO - Database initialized successfully
+2025-10-12 13:28:41,526 - database.database_manager - INFO - Database initialized successfully
+2025-10-12 13:28:41,528 - services.data_loader - INFO - Cleared units table
+2025-10-12 13:28:41,528 - services.data_loader - INFO - Cleared alerts table
+2025-10-12 13:28:41,529 - services.data_loader - INFO - Cleared missions table
+2025-10-12 13:28:41,530 - services.data_loader - INFO - Cleared equipment table
+2025-10-12 13:28:41,530 - services.data_loader - INFO - Cleared events table
+2025-10-12 13:28:41,531 - services.data_loader - INFO - Cleared system_metrics table
+2025-10-12 13:28:41,537 - services.data_loader - INFO - All demo data cleared successfully
+2025-10-12 13:28:41,558 - services.data_loader - INFO - Creating realistic military scenario...
+2025-10-12 13:28:41,559 - services.data_loader - INFO - Cleared units table
+2025-10-12 13:28:41,559 - services.data_loader - INFO - Cleared alerts table
+2025-10-12 13:28:41,560 - services.data_loader - INFO - Cleared missions table
+2025-10-12 13:28:41,560 - services.data_loader - INFO - Cleared equipment table
+2025-10-12 13:28:41,560 - services.data_loader - INFO - Cleared events table
+2025-10-12 13:28:41,560 - services.data_loader - INFO - Cleared system_metrics table
+2025-10-12 13:28:41,565 - services.data_loader - INFO - All demo data cleared successfully
+2025-10-12 13:28:42,054 - services.data_loader - INFO - Loading 80 equipment items...
+2025-10-12 13:28:42,179 - services.data_loader - INFO - Loaded 20/80 equipment items
+2025-10-12 13:28:42,306 - services.data_loader - INFO - Loaded 40/80 equipment items
+2025-10-12 13:28:42,433 - services.data_loader - INFO - Loaded 60/80 equipment items
+2025-10-12 13:28:42,545 - services.data_loader - INFO - Loaded 80/80 equipment items
+2025-10-12 13:28:42,545 - services.data_loader - INFO - Successfully loaded 80 equipment items
+2025-10-12 13:28:42,553 - database.database_manager - INFO - Event added with ID: 618
+2025-10-12 13:28:42,560 - database.database_manager - INFO - Event added with ID: 619
+2025-10-12 13:28:42,566 - database.database_manager - INFO - Event added with ID: 620
+2025-10-12 13:28:42,573 - database.database_manager - INFO - Event added with ID: 621
+2025-10-12 13:28:42,579 - database.database_manager - INFO - Event added with ID: 622
+2025-10-12 13:28:42,586 - database.database_manager - INFO - Event added with ID: 623
+2025-10-12 13:28:42,592 - database.database_manager - INFO - Event added with ID: 624
+2025-10-12 13:28:42,598 - database.database_manager - INFO - Event added with ID: 625
+2025-10-12 13:28:42,604 - database.database_manager - INFO - Event added with ID: 626
+2025-10-12 13:28:42,610 - database.database_manager - INFO - Event added with ID: 627
+2025-10-12 13:28:42,616 - database.database_manager - INFO - Event added with ID: 628
+2025-10-12 13:28:42,623 - database.database_manager - INFO - Event added with ID: 629
+2025-10-12 13:28:42,628 - database.database_manager - INFO - Event added with ID: 630
+2025-10-12 13:28:42,635 - database.database_manager - INFO - Event added with ID: 631
+2025-10-12 13:28:42,641 - database.database_manager - INFO - Event added with ID: 632
+2025-10-12 13:28:42,648 - database.database_manager - INFO - Event added with ID: 633
+2025-10-12 13:28:42,655 - database.database_manager - INFO - Event added with ID: 634
+2025-10-12 13:28:42,661 - database.database_manager - INFO - Event added with ID: 635
+2025-10-12 13:28:42,669 - database.database_manager - INFO - Event added with ID: 636
+2025-10-12 13:28:42,676 - database.database_manager - INFO - Event added with ID: 637
+2025-10-12 13:28:42,682 - database.database_manager - INFO - Event added with ID: 638
+2025-10-12 13:28:42,688 - database.database_manager - INFO - Event added with ID: 639
+2025-10-12 13:28:42,696 - database.database_manager - INFO - Event added with ID: 640
+2025-10-12 13:28:42,702 - database.database_manager - INFO - Event added with ID: 641
+2025-10-12 13:28:42,708 - database.database_manager - INFO - Event added with ID: 642
+2025-10-12 13:28:42,715 - database.database_manager - INFO - Event added with ID: 643
+2025-10-12 13:28:42,723 - database.database_manager - INFO - Event added with ID: 644
+2025-10-12 13:28:42,729 - database.database_manager - INFO - Event added with ID: 645
+2025-10-12 13:28:42,735 - database.database_manager - INFO - Event added with ID: 646
+2025-10-12 13:28:42,741 - database.database_manager - INFO - Event added with ID: 647
+2025-10-12 13:28:42,749 - database.database_manager - INFO - Event added with ID: 648
+2025-10-12 13:28:42,755 - database.database_manager - INFO - Event added with ID: 649
+2025-10-12 13:28:42,761 - database.database_manager - INFO - Event added with ID: 650
+2025-10-12 13:28:42,768 - database.database_manager - INFO - Event added with ID: 651
+2025-10-12 13:28:42,774 - database.database_manager - INFO - Event added with ID: 652
+2025-10-12 13:28:42,782 - database.database_manager - INFO - Event added with ID: 653
+2025-10-12 13:28:42,788 - database.database_manager - INFO - Event added with ID: 654
+2025-10-12 13:28:42,794 - database.database_manager - INFO - Event added with ID: 655
+2025-10-12 13:28:42,800 - database.database_manager - INFO - Event added with ID: 656
+2025-10-12 13:28:42,805 - database.database_manager - INFO - Event added with ID: 657
+2025-10-12 13:28:42,811 - database.database_manager - INFO - Event added with ID: 658
+2025-10-12 13:28:42,817 - database.database_manager - INFO - Event added with ID: 659
+2025-10-12 13:28:42,823 - database.database_manager - INFO - Event added with ID: 660
+2025-10-12 13:28:42,829 - database.database_manager - INFO - Event added with ID: 661
+2025-10-12 13:28:42,835 - database.database_manager - INFO - Event added with ID: 662
+2025-10-12 13:28:42,842 - database.database_manager - INFO - Event added with ID: 663
+2025-10-12 13:28:42,849 - database.database_manager - INFO - Event added with ID: 664
+2025-10-12 13:28:42,856 - database.database_manager - INFO - Event added with ID: 665
+2025-10-12 13:28:42,861 - database.database_manager - INFO - Event added with ID: 666
+2025-10-12 13:28:42,867 - database.database_manager - INFO - Event added with ID: 667
+2025-10-12 13:28:42,873 - database.database_manager - INFO - Event added with ID: 668
+2025-10-12 13:28:42,880 - database.database_manager - INFO - Event added with ID: 669
+2025-10-12 13:28:42,887 - database.database_manager - INFO - Event added with ID: 670
+2025-10-12 13:28:42,893 - database.database_manager - INFO - Event added with ID: 671
+2025-10-12 13:28:42,899 - database.database_manager - INFO - Event added with ID: 672
+2025-10-12 13:28:42,905 - database.database_manager - INFO - Event added with ID: 673
+2025-10-12 13:28:42,911 - database.database_manager - INFO - Event added with ID: 674
+2025-10-12 13:28:42,918 - database.database_manager - INFO - Event added with ID: 675
+2025-10-12 13:28:42,927 - database.database_manager - INFO - Event added with ID: 676
+2025-10-12 13:28:42,933 - database.database_manager - INFO - Event added with ID: 677
+2025-10-12 13:28:42,939 - database.database_manager - INFO - Event added with ID: 678
+2025-10-12 13:28:42,946 - database.database_manager - INFO - Event added with ID: 679
+2025-10-12 13:28:42,951 - database.database_manager - INFO - Event added with ID: 680
+2025-10-12 13:28:42,958 - database.database_manager - INFO - Event added with ID: 681
+2025-10-12 13:28:42,965 - database.database_manager - INFO - Event added with ID: 682
+2025-10-12 13:28:42,972 - database.database_manager - INFO - Event added with ID: 683
+2025-10-12 13:28:42,980 - database.database_manager - INFO - Event added with ID: 684
+2025-10-12 13:28:42,985 - database.database_manager - INFO - Event added with ID: 685
+2025-10-12 13:28:42,991 - database.database_manager - INFO - Event added with ID: 686
+2025-10-12 13:28:42,997 - database.database_manager - INFO - Event added with ID: 687
+2025-10-12 13:28:43,005 - database.database_manager - INFO - Event added with ID: 688
+2025-10-12 13:28:43,011 - database.database_manager - INFO - Event added with ID: 689
+2025-10-12 13:28:43,017 - database.database_manager - INFO - Event added with ID: 690
+2025-10-12 13:28:43,023 - database.database_manager - INFO - Event added with ID: 691
+2025-10-12 13:28:43,029 - database.database_manager - INFO - Event added with ID: 692
+2025-10-12 13:28:43,035 - database.database_manager - INFO - Event added with ID: 693
+2025-10-12 13:28:43,040 - database.database_manager - INFO - Event added with ID: 694
+2025-10-12 13:28:43,047 - database.database_manager - INFO - Event added with ID: 695
+2025-10-12 13:28:43,053 - database.database_manager - INFO - Event added with ID: 696
+2025-10-12 13:28:43,059 - database.database_manager - INFO - Event added with ID: 697
+2025-10-12 13:28:43,064 - database.database_manager - INFO - Event added with ID: 698
+2025-10-12 13:28:43,071 - database.database_manager - INFO - Event added with ID: 699
+2025-10-12 13:28:43,076 - database.database_manager - INFO - Event added with ID: 700
+2025-10-12 13:28:43,082 - database.database_manager - INFO - Event added with ID: 701
+2025-10-12 13:28:43,089 - database.database_manager - INFO - Event added with ID: 702
+2025-10-12 13:28:43,095 - database.database_manager - INFO - Event added with ID: 703
+2025-10-12 13:28:43,101 - database.database_manager - INFO - Event added with ID: 704
+2025-10-12 13:28:43,107 - database.database_manager - INFO - Event added with ID: 705
+2025-10-12 13:28:43,113 - database.database_manager - INFO - Event added with ID: 706
+2025-10-12 13:28:43,119 - database.database_manager - INFO - Event added with ID: 707
+2025-10-12 13:28:43,125 - database.database_manager - INFO - Event added with ID: 708
+2025-10-12 13:28:43,132 - database.database_manager - INFO - Event added with ID: 709
+2025-10-12 13:28:43,138 - database.database_manager - INFO - Event added with ID: 710
+2025-10-12 13:28:43,145 - database.database_manager - INFO - Event added with ID: 711
+2025-10-12 13:28:43,150 - database.database_manager - INFO - Event added with ID: 712
+2025-10-12 13:28:43,157 - database.database_manager - INFO - Event added with ID: 713
+2025-10-12 13:28:43,163 - database.database_manager - INFO - Event added with ID: 714
+2025-10-12 13:28:43,169 - database.database_manager - INFO - Event added with ID: 715
+2025-10-12 13:28:43,175 - database.database_manager - INFO - Event added with ID: 716
+2025-10-12 13:28:43,181 - database.database_manager - INFO - Event added with ID: 717
+2025-10-12 13:28:43,187 - database.database_manager - INFO - Event added with ID: 718
+2025-10-12 13:28:43,193 - database.database_manager - INFO - Event added with ID: 719
+2025-10-12 13:28:43,200 - database.database_manager - INFO - Event added with ID: 720
+2025-10-12 13:28:43,206 - database.database_manager - INFO - Event added with ID: 721
+2025-10-12 13:28:43,213 - database.database_manager - INFO - Event added with ID: 722
+2025-10-12 13:28:43,220 - database.database_manager - INFO - Event added with ID: 723
+2025-10-12 13:28:43,228 - database.database_manager - INFO - Event added with ID: 724
+2025-10-12 13:28:43,235 - database.database_manager - INFO - Event added with ID: 725
+2025-10-12 13:28:43,241 - database.database_manager - INFO - Event added with ID: 726
+2025-10-12 13:28:43,247 - database.database_manager - INFO - Event added with ID: 727
+2025-10-12 13:28:43,253 - database.database_manager - INFO - Event added with ID: 728
+2025-10-12 13:28:43,261 - database.database_manager - INFO - Event added with ID: 729
+2025-10-12 13:28:43,266 - database.database_manager - INFO - Event added with ID: 730
+2025-10-12 13:28:43,272 - database.database_manager - INFO - Event added with ID: 731
+2025-10-12 13:28:43,277 - database.database_manager - INFO - Event added with ID: 732
+2025-10-12 13:28:43,283 - database.database_manager - INFO - Event added with ID: 733
+2025-10-12 13:28:43,288 - database.database_manager - INFO - Event added with ID: 734
+2025-10-12 13:28:43,295 - database.database_manager - INFO - Event added with ID: 735
+2025-10-12 13:28:43,302 - database.database_manager - INFO - Event added with ID: 736
+2025-10-12 13:28:43,307 - database.database_manager - INFO - Event added with ID: 737
+2025-10-12 13:28:43,314 - database.database_manager - INFO - Event added with ID: 738
+2025-10-12 13:28:43,319 - database.database_manager - INFO - Event added with ID: 739
+2025-10-12 13:28:43,325 - database.database_manager - INFO - Event added with ID: 740
+2025-10-12 13:28:43,330 - database.database_manager - INFO - Event added with ID: 741
+2025-10-12 13:28:43,336 - database.database_manager - INFO - Event added with ID: 742
+2025-10-12 13:28:43,341 - database.database_manager - INFO - Event added with ID: 743
+2025-10-12 13:28:43,348 - database.database_manager - INFO - Event added with ID: 744
+2025-10-12 13:28:43,356 - database.database_manager - INFO - Event added with ID: 745
+2025-10-12 13:28:43,363 - database.database_manager - INFO - Event added with ID: 746
+2025-10-12 13:28:43,369 - database.database_manager - INFO - Event added with ID: 747
+2025-10-12 13:28:43,375 - database.database_manager - INFO - Event added with ID: 748
+2025-10-12 13:28:43,382 - database.database_manager - INFO - Event added with ID: 749
+2025-10-12 13:28:43,388 - database.database_manager - INFO - Event added with ID: 750
+2025-10-12 13:28:43,395 - database.database_manager - INFO - Event added with ID: 751
+2025-10-12 13:28:43,401 - database.database_manager - INFO - Event added with ID: 752
+2025-10-12 13:28:43,409 - database.database_manager - INFO - Event added with ID: 753
+2025-10-12 13:28:43,416 - database.database_manager - INFO - Event added with ID: 754
+2025-10-12 13:28:43,424 - database.database_manager - INFO - Event added with ID: 755
+2025-10-12 13:28:43,432 - database.database_manager - INFO - Event added with ID: 756
+2025-10-12 13:28:43,439 - database.database_manager - INFO - Event added with ID: 757
+2025-10-12 13:28:43,447 - database.database_manager - INFO - Event added with ID: 758
+2025-10-12 13:28:43,453 - database.database_manager - INFO - Event added with ID: 759
+2025-10-12 13:28:43,460 - database.database_manager - INFO - Event added with ID: 760
+2025-10-12 13:28:43,466 - database.database_manager - INFO - Event added with ID: 761
+2025-10-12 13:28:43,473 - database.database_manager - INFO - Event added with ID: 762
+2025-10-12 13:28:43,479 - database.database_manager - INFO - Event added with ID: 763
+2025-10-12 13:28:43,486 - database.database_manager - INFO - Event added with ID: 764
+2025-10-12 13:28:43,492 - database.database_manager - INFO - Event added with ID: 765
+2025-10-12 13:28:43,498 - database.database_manager - INFO - Event added with ID: 766
+2025-10-12 13:28:43,504 - database.database_manager - INFO - Event added with ID: 767
+2025-10-12 13:28:43,505 - services.data_loader - INFO - Loading 300 system metrics...
+2025-10-12 13:28:44,092 - services.data_loader - INFO - Loaded 100/300 metrics
+2025-10-12 13:28:44,661 - services.data_loader - INFO - Loaded 200/300 metrics
+2025-10-12 13:28:45,270 - services.data_loader - INFO - Loaded 300/300 metrics
+2025-10-12 13:28:45,270 - services.data_loader - INFO - Successfully loaded 300 system metrics
+2025-10-12 13:28:45,271 - services.data_loader - INFO - Realistic scenario created successfully
+2025-10-12 14:50:50,483 - database.database_manager - INFO - Database initialized successfully
+2025-10-12 14:50:50,485 - database.database_manager - INFO - Database initialized successfully
+2025-10-12 14:50:50,487 - services.data_loader - INFO - Cleared units table
+2025-10-12 14:50:50,487 - services.data_loader - INFO - Cleared alerts table
+2025-10-12 14:50:50,488 - services.data_loader - INFO - Cleared missions table
+2025-10-12 14:50:50,488 - services.data_loader - INFO - Cleared equipment table
+2025-10-12 14:50:50,488 - services.data_loader - INFO - Cleared events table
+2025-10-12 14:50:50,489 - services.data_loader - INFO - Cleared system_metrics table
+2025-10-12 14:50:50,494 - services.data_loader - INFO - All demo data cleared successfully
+2025-10-12 14:50:50,517 - services.data_loader - INFO - Creating realistic military scenario...
+2025-10-12 14:50:50,519 - services.data_loader - INFO - Cleared units table
+2025-10-12 14:50:50,520 - services.data_loader - INFO - Cleared alerts table
+2025-10-12 14:50:50,520 - services.data_loader - INFO - Cleared missions table
+2025-10-12 14:50:50,520 - services.data_loader - INFO - Cleared equipment table
+2025-10-12 14:50:50,520 - services.data_loader - INFO - Cleared events table
+2025-10-12 14:50:50,521 - services.data_loader - INFO - Cleared system_metrics table
+2025-10-12 14:50:50,526 - services.data_loader - INFO - All demo data cleared successfully
+2025-10-12 14:50:51,130 - services.data_loader - INFO - Loading 80 equipment items...
+2025-10-12 14:50:51,275 - services.data_loader - INFO - Loaded 20/80 equipment items
+2025-10-12 14:50:51,408 - services.data_loader - INFO - Loaded 40/80 equipment items
+2025-10-12 14:50:51,526 - services.data_loader - INFO - Loaded 60/80 equipment items
+2025-10-12 14:50:51,636 - services.data_loader - INFO - Loaded 80/80 equipment items
+2025-10-12 14:50:51,637 - services.data_loader - INFO - Successfully loaded 80 equipment items
+2025-10-12 14:50:51,643 - database.database_manager - INFO - Event added with ID: 773
+2025-10-12 14:50:51,649 - database.database_manager - INFO - Event added with ID: 774
+2025-10-12 14:50:51,655 - database.database_manager - INFO - Event added with ID: 775
+2025-10-12 14:50:51,660 - database.database_manager - INFO - Event added with ID: 776
+2025-10-12 14:50:51,666 - database.database_manager - INFO - Event added with ID: 777
+2025-10-12 14:50:51,674 - database.database_manager - INFO - Event added with ID: 778
+2025-10-12 14:50:51,682 - database.database_manager - INFO - Event added with ID: 779
+2025-10-12 14:50:51,692 - database.database_manager - INFO - Event added with ID: 780
+2025-10-12 14:50:51,699 - database.database_manager - INFO - Event added with ID: 781
+2025-10-12 14:50:51,706 - database.database_manager - INFO - Event added with ID: 782
+2025-10-12 14:50:51,713 - database.database_manager - INFO - Event added with ID: 783
+2025-10-12 14:50:51,719 - database.database_manager - INFO - Event added with ID: 784
+2025-10-12 14:50:51,725 - database.database_manager - INFO - Event added with ID: 785
+2025-10-12 14:50:51,731 - database.database_manager - INFO - Event added with ID: 786
+2025-10-12 14:50:51,738 - database.database_manager - INFO - Event added with ID: 787
+2025-10-12 14:50:51,744 - database.database_manager - INFO - Event added with ID: 788
+2025-10-12 14:50:51,749 - database.database_manager - INFO - Event added with ID: 789
+2025-10-12 14:50:51,755 - database.database_manager - INFO - Event added with ID: 790
+2025-10-12 14:50:51,760 - database.database_manager - INFO - Event added with ID: 791
+2025-10-12 14:50:51,766 - database.database_manager - INFO - Event added with ID: 792
+2025-10-12 14:50:51,773 - database.database_manager - INFO - Event added with ID: 793
+2025-10-12 14:50:51,779 - database.database_manager - INFO - Event added with ID: 794
+2025-10-12 14:50:51,785 - database.database_manager - INFO - Event added with ID: 795
+2025-10-12 14:50:51,790 - database.database_manager - INFO - Event added with ID: 796
+2025-10-12 14:50:51,796 - database.database_manager - INFO - Event added with ID: 797
+2025-10-12 14:50:51,802 - database.database_manager - INFO - Event added with ID: 798
+2025-10-12 14:50:51,807 - database.database_manager - INFO - Event added with ID: 799
+2025-10-12 14:50:51,813 - database.database_manager - INFO - Event added with ID: 800
+2025-10-12 14:50:51,819 - database.database_manager - INFO - Event added with ID: 801
+2025-10-12 14:50:51,825 - database.database_manager - INFO - Event added with ID: 802
+2025-10-12 14:50:51,832 - database.database_manager - INFO - Event added with ID: 803
+2025-10-12 14:50:51,839 - database.database_manager - INFO - Event added with ID: 804
+2025-10-12 14:50:51,846 - database.database_manager - INFO - Event added with ID: 805
+2025-10-12 14:50:51,852 - database.database_manager - INFO - Event added with ID: 806
+2025-10-12 14:50:51,858 - database.database_manager - INFO - Event added with ID: 807
+2025-10-12 14:50:51,865 - database.database_manager - INFO - Event added with ID: 808
+2025-10-12 14:50:51,871 - database.database_manager - INFO - Event added with ID: 809
+2025-10-12 14:50:51,878 - database.database_manager - INFO - Event added with ID: 810
+2025-10-12 14:50:51,887 - database.database_manager - INFO - Event added with ID: 811
+2025-10-12 14:50:51,894 - database.database_manager - INFO - Event added with ID: 812
+2025-10-12 14:50:51,901 - database.database_manager - INFO - Event added with ID: 813
+2025-10-12 14:50:51,908 - database.database_manager - INFO - Event added with ID: 814
+2025-10-12 14:50:51,914 - database.database_manager - INFO - Event added with ID: 815
+2025-10-12 14:50:51,919 - database.database_manager - INFO - Event added with ID: 816
+2025-10-12 14:50:51,925 - database.database_manager - INFO - Event added with ID: 817
+2025-10-12 14:50:51,932 - database.database_manager - INFO - Event added with ID: 818
+2025-10-12 14:50:51,940 - database.database_manager - INFO - Event added with ID: 819
+2025-10-12 14:50:51,946 - database.database_manager - INFO - Event added with ID: 820
+2025-10-12 14:50:51,953 - database.database_manager - INFO - Event added with ID: 821
+2025-10-12 14:50:51,958 - database.database_manager - INFO - Event added with ID: 822
+2025-10-12 14:50:51,966 - database.database_manager - INFO - Event added with ID: 823
+2025-10-12 14:50:51,972 - database.database_manager - INFO - Event added with ID: 824
+2025-10-12 14:50:51,979 - database.database_manager - INFO - Event added with ID: 825
+2025-10-12 14:50:51,984 - database.database_manager - INFO - Event added with ID: 826
+2025-10-12 14:50:51,990 - database.database_manager - INFO - Event added with ID: 827
+2025-10-12 14:50:51,995 - database.database_manager - INFO - Event added with ID: 828
+2025-10-12 14:50:52,001 - database.database_manager - INFO - Event added with ID: 829
+2025-10-12 14:50:52,007 - database.database_manager - INFO - Event added with ID: 830
+2025-10-12 14:50:52,013 - database.database_manager - INFO - Event added with ID: 831
+2025-10-12 14:50:52,020 - database.database_manager - INFO - Event added with ID: 832
+2025-10-12 14:50:52,027 - database.database_manager - INFO - Event added with ID: 833
+2025-10-12 14:50:52,034 - database.database_manager - INFO - Event added with ID: 834
+2025-10-12 14:50:52,040 - database.database_manager - INFO - Event added with ID: 835
+2025-10-12 14:50:52,046 - database.database_manager - INFO - Event added with ID: 836
+2025-10-12 14:50:52,052 - database.database_manager - INFO - Event added with ID: 837
+2025-10-12 14:50:52,058 - database.database_manager - INFO - Event added with ID: 838
+2025-10-12 14:50:52,064 - database.database_manager - INFO - Event added with ID: 839
+2025-10-12 14:50:52,070 - database.database_manager - INFO - Event added with ID: 840
+2025-10-12 14:50:52,076 - database.database_manager - INFO - Event added with ID: 841
+2025-10-12 14:50:52,082 - database.database_manager - INFO - Event added with ID: 842
+2025-10-12 14:50:52,088 - database.database_manager - INFO - Event added with ID: 843
+2025-10-12 14:50:52,094 - database.database_manager - INFO - Event added with ID: 844
+2025-10-12 14:50:52,101 - database.database_manager - INFO - Event added with ID: 845
+2025-10-12 14:50:52,107 - database.database_manager - INFO - Event added with ID: 846
+2025-10-12 14:50:52,114 - database.database_manager - INFO - Event added with ID: 847
+2025-10-12 14:50:52,120 - database.database_manager - INFO - Event added with ID: 848
+2025-10-12 14:50:52,127 - database.database_manager - INFO - Event added with ID: 849
+2025-10-12 14:50:52,133 - database.database_manager - INFO - Event added with ID: 850
+2025-10-12 14:50:52,139 - database.database_manager - INFO - Event added with ID: 851
+2025-10-12 14:50:52,145 - database.database_manager - INFO - Event added with ID: 852
+2025-10-12 14:50:52,151 - database.database_manager - INFO - Event added with ID: 853
+2025-10-12 14:50:52,157 - database.database_manager - INFO - Event added with ID: 854
+2025-10-12 14:50:52,162 - database.database_manager - INFO - Event added with ID: 855
+2025-10-12 14:50:52,170 - database.database_manager - INFO - Event added with ID: 856
+2025-10-12 14:50:52,177 - database.database_manager - INFO - Event added with ID: 857
+2025-10-12 14:50:52,183 - database.database_manager - INFO - Event added with ID: 858
+2025-10-12 14:50:52,191 - database.database_manager - INFO - Event added with ID: 859
+2025-10-12 14:50:52,197 - database.database_manager - INFO - Event added with ID: 860
+2025-10-12 14:50:52,203 - database.database_manager - INFO - Event added with ID: 861
+2025-10-12 14:50:52,209 - database.database_manager - INFO - Event added with ID: 862
+2025-10-12 14:50:52,216 - database.database_manager - INFO - Event added with ID: 863
+2025-10-12 14:50:52,222 - database.database_manager - INFO - Event added with ID: 864
+2025-10-12 14:50:52,228 - database.database_manager - INFO - Event added with ID: 865
+2025-10-12 14:50:52,234 - database.database_manager - INFO - Event added with ID: 866
+2025-10-12 14:50:52,240 - database.database_manager - INFO - Event added with ID: 867
+2025-10-12 14:50:52,245 - database.database_manager - INFO - Event added with ID: 868
+2025-10-12 14:50:52,250 - database.database_manager - INFO - Event added with ID: 869
+2025-10-12 14:50:52,257 - database.database_manager - INFO - Event added with ID: 870
+2025-10-12 14:50:52,263 - database.database_manager - INFO - Event added with ID: 871
+2025-10-12 14:50:52,269 - database.database_manager - INFO - Event added with ID: 872
+2025-10-12 14:50:52,275 - database.database_manager - INFO - Event added with ID: 873
+2025-10-12 14:50:52,282 - database.database_manager - INFO - Event added with ID: 874
+2025-10-12 14:50:52,289 - database.database_manager - INFO - Event added with ID: 875
+2025-10-12 14:50:52,295 - database.database_manager - INFO - Event added with ID: 876
+2025-10-12 14:50:52,301 - database.database_manager - INFO - Event added with ID: 877
+2025-10-12 14:50:52,307 - database.database_manager - INFO - Event added with ID: 878
+2025-10-12 14:50:52,314 - database.database_manager - INFO - Event added with ID: 879
+2025-10-12 14:50:52,320 - database.database_manager - INFO - Event added with ID: 880
+2025-10-12 14:50:52,326 - database.database_manager - INFO - Event added with ID: 881
+2025-10-12 14:50:52,333 - database.database_manager - INFO - Event added with ID: 882
+2025-10-12 14:50:52,339 - database.database_manager - INFO - Event added with ID: 883
+2025-10-12 14:50:52,346 - database.database_manager - INFO - Event added with ID: 884
+2025-10-12 14:50:52,352 - database.database_manager - INFO - Event added with ID: 885
+2025-10-12 14:50:52,358 - database.database_manager - INFO - Event added with ID: 886
+2025-10-12 14:50:52,363 - database.database_manager - INFO - Event added with ID: 887
+2025-10-12 14:50:52,368 - database.database_manager - INFO - Event added with ID: 888
+2025-10-12 14:50:52,375 - database.database_manager - INFO - Event added with ID: 889
+2025-10-12 14:50:52,381 - database.database_manager - INFO - Event added with ID: 890
+2025-10-12 14:50:52,386 - database.database_manager - INFO - Event added with ID: 891
+2025-10-12 14:50:52,391 - database.database_manager - INFO - Event added with ID: 892
+2025-10-12 14:50:52,397 - database.database_manager - INFO - Event added with ID: 893
+2025-10-12 14:50:52,403 - database.database_manager - INFO - Event added with ID: 894
+2025-10-12 14:50:52,408 - database.database_manager - INFO - Event added with ID: 895
+2025-10-12 14:50:52,414 - database.database_manager - INFO - Event added with ID: 896
+2025-10-12 14:50:52,421 - database.database_manager - INFO - Event added with ID: 897
+2025-10-12 14:50:52,426 - database.database_manager - INFO - Event added with ID: 898
+2025-10-12 14:50:52,433 - database.database_manager - INFO - Event added with ID: 899
+2025-10-12 14:50:52,440 - database.database_manager - INFO - Event added with ID: 900
+2025-10-12 14:50:52,446 - database.database_manager - INFO - Event added with ID: 901
+2025-10-12 14:50:52,452 - database.database_manager - INFO - Event added with ID: 902
+2025-10-12 14:50:52,458 - database.database_manager - INFO - Event added with ID: 903
+2025-10-12 14:50:52,463 - database.database_manager - INFO - Event added with ID: 904
+2025-10-12 14:50:52,469 - database.database_manager - INFO - Event added with ID: 905
+2025-10-12 14:50:52,475 - database.database_manager - INFO - Event added with ID: 906
+2025-10-12 14:50:52,480 - database.database_manager - INFO - Event added with ID: 907
+2025-10-12 14:50:52,487 - database.database_manager - INFO - Event added with ID: 908
+2025-10-12 14:50:52,494 - database.database_manager - INFO - Event added with ID: 909
+2025-10-12 14:50:52,500 - database.database_manager - INFO - Event added with ID: 910
+2025-10-12 14:50:52,506 - database.database_manager - INFO - Event added with ID: 911
+2025-10-12 14:50:52,513 - database.database_manager - INFO - Event added with ID: 912
+2025-10-12 14:50:52,519 - database.database_manager - INFO - Event added with ID: 913
+2025-10-12 14:50:52,524 - database.database_manager - INFO - Event added with ID: 914
+2025-10-12 14:50:52,529 - database.database_manager - INFO - Event added with ID: 915
+2025-10-12 14:50:52,534 - database.database_manager - INFO - Event added with ID: 916
+2025-10-12 14:50:52,540 - database.database_manager - INFO - Event added with ID: 917
+2025-10-12 14:50:52,546 - database.database_manager - INFO - Event added with ID: 918
+2025-10-12 14:50:52,551 - database.database_manager - INFO - Event added with ID: 919
+2025-10-12 14:50:52,557 - database.database_manager - INFO - Event added with ID: 920
+2025-10-12 14:50:52,562 - database.database_manager - INFO - Event added with ID: 921
+2025-10-12 14:50:52,567 - database.database_manager - INFO - Event added with ID: 922
+2025-10-12 14:50:52,568 - services.data_loader - INFO - Loading 300 system metrics...
+2025-10-12 14:50:53,226 - services.data_loader - INFO - Loaded 100/300 metrics
+2025-10-12 14:50:53,751 - services.data_loader - INFO - Loaded 200/300 metrics
+2025-10-12 14:50:54,338 - services.data_loader - INFO - Loaded 300/300 metrics
+2025-10-12 14:50:54,338 - services.data_loader - INFO - Successfully loaded 300 system metrics
+2025-10-12 14:50:54,338 - services.data_loader - INFO - Realistic scenario created successfully
+2025-10-12 23:46:11,664 - database.database_manager - INFO - Database initialized successfully
+2025-10-12 23:46:11,681 - database.database_manager - INFO - Database initialized successfully
+2025-10-12 23:46:11,684 - services.data_loader - INFO - Cleared units table
+2025-10-12 23:46:11,685 - services.data_loader - INFO - Cleared alerts table
+2025-10-12 23:46:11,686 - services.data_loader - INFO - Cleared missions table
+2025-10-12 23:46:11,686 - services.data_loader - INFO - Cleared equipment table
+2025-10-12 23:46:11,687 - services.data_loader - INFO - Cleared events table
+2025-10-12 23:46:11,688 - services.data_loader - INFO - Cleared system_metrics table
+2025-10-12 23:46:11,695 - services.data_loader - INFO - All demo data cleared successfully
+2025-10-12 23:46:11,716 - services.data_loader - INFO - Creating realistic military scenario...
+2025-10-12 23:46:11,718 - services.data_loader - INFO - Cleared units table
+2025-10-12 23:46:11,718 - services.data_loader - INFO - Cleared alerts table
+2025-10-12 23:46:11,718 - services.data_loader - INFO - Cleared missions table
+2025-10-12 23:46:11,719 - services.data_loader - INFO - Cleared equipment table
+2025-10-12 23:46:11,719 - services.data_loader - INFO - Cleared events table
+2025-10-12 23:46:11,719 - services.data_loader - INFO - Cleared system_metrics table
+2025-10-12 23:46:11,723 - services.data_loader - INFO - All demo data cleared successfully
+2025-10-12 23:46:12,154 - services.data_loader - INFO - Loading 80 equipment items...
+2025-10-12 23:46:12,258 - services.data_loader - INFO - Loaded 20/80 equipment items
+2025-10-12 23:46:12,368 - services.data_loader - INFO - Loaded 40/80 equipment items
+2025-10-12 23:46:12,475 - services.data_loader - INFO - Loaded 60/80 equipment items
+2025-10-12 23:46:12,595 - services.data_loader - INFO - Loaded 80/80 equipment items
+2025-10-12 23:46:12,595 - services.data_loader - INFO - Successfully loaded 80 equipment items
+2025-10-12 23:46:12,602 - database.database_manager - INFO - Event added with ID: 930
+2025-10-12 23:46:12,608 - database.database_manager - INFO - Event added with ID: 931
+2025-10-12 23:46:12,614 - database.database_manager - INFO - Event added with ID: 932
+2025-10-12 23:46:12,619 - database.database_manager - INFO - Event added with ID: 933
+2025-10-12 23:46:12,625 - database.database_manager - INFO - Event added with ID: 934
+2025-10-12 23:46:12,629 - database.database_manager - INFO - Event added with ID: 935
+2025-10-12 23:46:12,635 - database.database_manager - INFO - Event added with ID: 936
+2025-10-12 23:46:12,641 - database.database_manager - INFO - Event added with ID: 937
+2025-10-12 23:46:12,647 - database.database_manager - INFO - Event added with ID: 938
+2025-10-12 23:46:12,652 - database.database_manager - INFO - Event added with ID: 939
+2025-10-12 23:46:12,657 - database.database_manager - INFO - Event added with ID: 940
+2025-10-12 23:46:12,663 - database.database_manager - INFO - Event added with ID: 941
+2025-10-12 23:46:12,669 - database.database_manager - INFO - Event added with ID: 942
+2025-10-12 23:46:12,675 - database.database_manager - INFO - Event added with ID: 943
+2025-10-12 23:46:12,681 - database.database_manager - INFO - Event added with ID: 944
+2025-10-12 23:46:12,685 - database.database_manager - INFO - Event added with ID: 945
+2025-10-12 23:46:12,690 - database.database_manager - INFO - Event added with ID: 946
+2025-10-12 23:46:12,696 - database.database_manager - INFO - Event added with ID: 947
+2025-10-12 23:46:12,700 - database.database_manager - INFO - Event added with ID: 948
+2025-10-12 23:46:12,704 - database.database_manager - INFO - Event added with ID: 949
+2025-10-12 23:46:12,711 - database.database_manager - INFO - Event added with ID: 950
+2025-10-12 23:46:12,715 - database.database_manager - INFO - Event added with ID: 951
+2025-10-12 23:46:12,721 - database.database_manager - INFO - Event added with ID: 952
+2025-10-12 23:46:12,726 - database.database_manager - INFO - Event added with ID: 953
+2025-10-12 23:46:12,731 - database.database_manager - INFO - Event added with ID: 954
+2025-10-12 23:46:12,738 - database.database_manager - INFO - Event added with ID: 955
+2025-10-12 23:46:12,744 - database.database_manager - INFO - Event added with ID: 956
+2025-10-12 23:46:12,750 - database.database_manager - INFO - Event added with ID: 957
+2025-10-12 23:46:12,755 - database.database_manager - INFO - Event added with ID: 958
+2025-10-12 23:46:12,758 - database.database_manager - INFO - Event added with ID: 959
+2025-10-12 23:46:12,766 - database.database_manager - INFO - Event added with ID: 960
+2025-10-12 23:46:12,771 - database.database_manager - INFO - Event added with ID: 961
+2025-10-12 23:46:12,777 - database.database_manager - INFO - Event added with ID: 962
+2025-10-12 23:46:12,782 - database.database_manager - INFO - Event added with ID: 963
+2025-10-12 23:46:12,787 - database.database_manager - INFO - Event added with ID: 964
+2025-10-12 23:46:12,792 - database.database_manager - INFO - Event added with ID: 965
+2025-10-12 23:46:12,797 - database.database_manager - INFO - Event added with ID: 966
+2025-10-12 23:46:12,802 - database.database_manager - INFO - Event added with ID: 967
+2025-10-12 23:46:12,807 - database.database_manager - INFO - Event added with ID: 968
+2025-10-12 23:46:12,812 - database.database_manager - INFO - Event added with ID: 969
+2025-10-12 23:46:12,816 - database.database_manager - INFO - Event added with ID: 970
+2025-10-12 23:46:12,822 - database.database_manager - INFO - Event added with ID: 971
+2025-10-12 23:46:12,826 - database.database_manager - INFO - Event added with ID: 972
+2025-10-12 23:46:12,831 - database.database_manager - INFO - Event added with ID: 973
+2025-10-12 23:46:12,836 - database.database_manager - INFO - Event added with ID: 974
+2025-10-12 23:46:12,840 - database.database_manager - INFO - Event added with ID: 975
+2025-10-12 23:46:12,846 - database.database_manager - INFO - Event added with ID: 976
+2025-10-12 23:46:12,851 - database.database_manager - INFO - Event added with ID: 977
+2025-10-12 23:46:12,855 - database.database_manager - INFO - Event added with ID: 978
+2025-10-12 23:46:12,860 - database.database_manager - INFO - Event added with ID: 979
+2025-10-12 23:46:12,865 - database.database_manager - INFO - Event added with ID: 980
+2025-10-12 23:46:12,869 - database.database_manager - INFO - Event added with ID: 981
+2025-10-12 23:46:12,875 - database.database_manager - INFO - Event added with ID: 982
+2025-10-12 23:46:12,880 - database.database_manager - INFO - Event added with ID: 983
+2025-10-12 23:46:12,885 - database.database_manager - INFO - Event added with ID: 984
+2025-10-12 23:46:12,889 - database.database_manager - INFO - Event added with ID: 985
+2025-10-12 23:46:12,895 - database.database_manager - INFO - Event added with ID: 986
+2025-10-12 23:46:12,900 - database.database_manager - INFO - Event added with ID: 987
+2025-10-12 23:46:12,905 - database.database_manager - INFO - Event added with ID: 988
+2025-10-12 23:46:12,911 - database.database_manager - INFO - Event added with ID: 989
+2025-10-12 23:46:12,915 - database.database_manager - INFO - Event added with ID: 990
+2025-10-12 23:46:12,920 - database.database_manager - INFO - Event added with ID: 991
+2025-10-12 23:46:12,926 - database.database_manager - INFO - Event added with ID: 992
+2025-10-12 23:46:12,931 - database.database_manager - INFO - Event added with ID: 993
+2025-10-12 23:46:12,935 - database.database_manager - INFO - Event added with ID: 994
+2025-10-12 23:46:12,940 - database.database_manager - INFO - Event added with ID: 995
+2025-10-12 23:46:12,944 - database.database_manager - INFO - Event added with ID: 996
+2025-10-12 23:46:12,950 - database.database_manager - INFO - Event added with ID: 997
+2025-10-12 23:46:12,954 - database.database_manager - INFO - Event added with ID: 998
+2025-10-12 23:46:12,959 - database.database_manager - INFO - Event added with ID: 999
+2025-10-12 23:46:12,965 - database.database_manager - INFO - Event added with ID: 1000
+2025-10-12 23:46:12,971 - database.database_manager - INFO - Event added with ID: 1001
+2025-10-12 23:46:12,976 - database.database_manager - INFO - Event added with ID: 1002
+2025-10-12 23:46:12,981 - database.database_manager - INFO - Event added with ID: 1003
+2025-10-12 23:46:12,986 - database.database_manager - INFO - Event added with ID: 1004
+2025-10-12 23:46:12,992 - database.database_manager - INFO - Event added with ID: 1005
+2025-10-12 23:46:12,998 - database.database_manager - INFO - Event added with ID: 1006
+2025-10-12 23:46:13,004 - database.database_manager - INFO - Event added with ID: 1007
+2025-10-12 23:46:13,009 - database.database_manager - INFO - Event added with ID: 1008
+2025-10-12 23:46:13,013 - database.database_manager - INFO - Event added with ID: 1009
+2025-10-12 23:46:13,019 - database.database_manager - INFO - Event added with ID: 1010
+2025-10-12 23:46:13,024 - database.database_manager - INFO - Event added with ID: 1011
+2025-10-12 23:46:13,029 - database.database_manager - INFO - Event added with ID: 1012
+2025-10-12 23:46:13,034 - database.database_manager - INFO - Event added with ID: 1013
+2025-10-12 23:46:13,039 - database.database_manager - INFO - Event added with ID: 1014
+2025-10-12 23:46:13,045 - database.database_manager - INFO - Event added with ID: 1015
+2025-10-12 23:46:13,049 - database.database_manager - INFO - Event added with ID: 1016
+2025-10-12 23:46:13,053 - database.database_manager - INFO - Event added with ID: 1017
+2025-10-12 23:46:13,059 - database.database_manager - INFO - Event added with ID: 1018
+2025-10-12 23:46:13,063 - database.database_manager - INFO - Event added with ID: 1019
+2025-10-12 23:46:13,064 - database.database_manager - INFO - Event added with ID: 1020
+2025-10-12 23:46:13,072 - database.database_manager - INFO - Event added with ID: 1021
+2025-10-12 23:46:13,077 - database.database_manager - INFO - Event added with ID: 1022
+2025-10-12 23:46:13,084 - database.database_manager - INFO - Event added with ID: 1023
+2025-10-12 23:46:13,089 - database.database_manager - INFO - Event added with ID: 1024
+2025-10-12 23:46:13,093 - database.database_manager - INFO - Event added with ID: 1025
+2025-10-12 23:46:13,099 - database.database_manager - INFO - Event added with ID: 1026
+2025-10-12 23:46:13,102 - database.database_manager - INFO - Event added with ID: 1027
+2025-10-12 23:46:13,107 - database.database_manager - INFO - Event added with ID: 1028
+2025-10-12 23:46:13,119 - database.database_manager - INFO - Event added with ID: 1029
+2025-10-12 23:46:13,125 - database.database_manager - INFO - Event added with ID: 1030
+2025-10-12 23:46:13,133 - database.database_manager - INFO - Event added with ID: 1031
+2025-10-12 23:46:13,140 - database.database_manager - INFO - Event added with ID: 1032
+2025-10-12 23:46:13,149 - database.database_manager - INFO - Event added with ID: 1033
+2025-10-12 23:46:13,162 - database.database_manager - INFO - Event added with ID: 1034
+2025-10-12 23:46:13,170 - database.database_manager - INFO - Event added with ID: 1035
+2025-10-12 23:46:13,176 - database.database_manager - INFO - Event added with ID: 1036
+2025-10-12 23:46:13,184 - database.database_manager - INFO - Event added with ID: 1037
+2025-10-12 23:46:13,188 - database.database_manager - INFO - Event added with ID: 1038
+2025-10-12 23:46:13,193 - database.database_manager - INFO - Event added with ID: 1039
+2025-10-12 23:46:13,198 - database.database_manager - INFO - Event added with ID: 1040
+2025-10-12 23:46:13,205 - database.database_manager - INFO - Event added with ID: 1041
+2025-10-12 23:46:13,209 - database.database_manager - INFO - Event added with ID: 1042
+2025-10-12 23:46:13,215 - database.database_manager - INFO - Event added with ID: 1043
+2025-10-12 23:46:13,220 - database.database_manager - INFO - Event added with ID: 1044
+2025-10-12 23:46:13,225 - database.database_manager - INFO - Event added with ID: 1045
+2025-10-12 23:46:13,231 - database.database_manager - INFO - Event added with ID: 1046
+2025-10-12 23:46:13,233 - database.database_manager - INFO - Event added with ID: 1047
+2025-10-12 23:46:13,239 - database.database_manager - INFO - Event added with ID: 1048
+2025-10-12 23:46:13,244 - database.database_manager - INFO - Event added with ID: 1049
+2025-10-12 23:46:13,250 - database.database_manager - INFO - Event added with ID: 1050
+2025-10-12 23:46:13,254 - database.database_manager - INFO - Event added with ID: 1051
+2025-10-12 23:46:13,260 - database.database_manager - INFO - Event added with ID: 1052
+2025-10-12 23:46:13,265 - database.database_manager - INFO - Event added with ID: 1053
+2025-10-12 23:46:13,269 - database.database_manager - INFO - Event added with ID: 1054
+2025-10-12 23:46:13,274 - database.database_manager - INFO - Event added with ID: 1055
+2025-10-12 23:46:13,280 - database.database_manager - INFO - Event added with ID: 1056
+2025-10-12 23:46:13,284 - database.database_manager - INFO - Event added with ID: 1057
+2025-10-12 23:46:13,286 - database.database_manager - INFO - Event added with ID: 1058
+2025-10-12 23:46:13,294 - database.database_manager - INFO - Event added with ID: 1059
+2025-10-12 23:46:13,299 - database.database_manager - INFO - Event added with ID: 1060
+2025-10-12 23:46:13,304 - database.database_manager - INFO - Event added with ID: 1061
+2025-10-12 23:46:13,308 - database.database_manager - INFO - Event added with ID: 1062
+2025-10-12 23:46:13,314 - database.database_manager - INFO - Event added with ID: 1063
+2025-10-12 23:46:13,317 - database.database_manager - INFO - Event added with ID: 1064
+2025-10-12 23:46:13,321 - database.database_manager - INFO - Event added with ID: 1065
+2025-10-12 23:46:13,329 - database.database_manager - INFO - Event added with ID: 1066
+2025-10-12 23:46:13,333 - database.database_manager - INFO - Event added with ID: 1067
+2025-10-12 23:46:13,338 - database.database_manager - INFO - Event added with ID: 1068
+2025-10-12 23:46:13,343 - database.database_manager - INFO - Event added with ID: 1069
+2025-10-12 23:46:13,348 - database.database_manager - INFO - Event added with ID: 1070
+2025-10-12 23:46:13,353 - database.database_manager - INFO - Event added with ID: 1071
+2025-10-12 23:46:13,357 - database.database_manager - INFO - Event added with ID: 1072
+2025-10-12 23:46:13,364 - database.database_manager - INFO - Event added with ID: 1073
+2025-10-12 23:46:13,369 - database.database_manager - INFO - Event added with ID: 1074
+2025-10-12 23:46:13,374 - database.database_manager - INFO - Event added with ID: 1075
+2025-10-12 23:46:13,379 - database.database_manager - INFO - Event added with ID: 1076
+2025-10-12 23:46:13,385 - database.database_manager - INFO - Event added with ID: 1077
+2025-10-12 23:46:13,390 - database.database_manager - INFO - Event added with ID: 1078
+2025-10-12 23:46:13,396 - database.database_manager - INFO - Event added with ID: 1079
+2025-10-12 23:46:13,396 - services.data_loader - INFO - Loading 300 system metrics...
+2025-10-12 23:46:13,862 - services.data_loader - INFO - Loaded 100/300 metrics
+2025-10-12 23:46:14,378 - services.data_loader - INFO - Loaded 200/300 metrics
+2025-10-12 23:46:14,886 - services.data_loader - INFO - Loaded 300/300 metrics
+2025-10-12 23:46:14,886 - services.data_loader - INFO - Successfully loaded 300 system metrics
+2025-10-12 23:46:14,886 - services.data_loader - INFO - Realistic scenario created successfully

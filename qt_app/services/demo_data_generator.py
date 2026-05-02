@@ -9,7 +9,7 @@ from typing import List, Dict, Any, Tuple
 from dataclasses import dataclass
 import uuid
 
-from database.models import Unit, Alert, Mission, Equipment, Event, SystemMetric
+from ..database.models import Unit, Alert, Mission, Equipment, Event, SystemMetric
 
 class DemoDataGenerator:
     """Generates realistic demo data for military operations"""

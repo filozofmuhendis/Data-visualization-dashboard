@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: msa-backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    restart: always
+    volumes:
+      # Persist SQLite DB file on host
+      - ./msa_dashboard.db:/app/msa_dashboard.db
+      # Persist uploads directory
+      - ./uploads:/app/uploads
+      # Serve static files from host if needed
+      - ./static:/app/static
+
+  nginx:
+    image: nginx:alpine
+    container_name: msa-nginx
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+    restart: always
+    volumes:
+      - ./deploy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
